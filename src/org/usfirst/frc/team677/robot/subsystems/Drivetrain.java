@@ -21,16 +21,23 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Drivetrain extends Subsystem {
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
-	public static TalonSRX left = new TalonSRX(RobotMap.LEFT_DRIVE_PORT);
-	public static TalonSRX right = new TalonSRX(RobotMap.RIGHT_DRIVE_PORT);
+	public static TalonSRX left_front = new TalonSRX(RobotMap.LEFT_DRIVE_PORT_FRONT);
+	public static TalonSRX right_front = new TalonSRX(RobotMap.RIGHT_DRIVE_PORT_FRONT);
+	public static TalonSRX left_back = new TalonSRX(RobotMap.LEFT_DRIVE_PORT_BACK);
+	public static TalonSRX right_back = new TalonSRX(RobotMap.RIGHT_DRIVE_PORT_BACK);
 	
 	public Drivetrain() {
 		
 	}
 	
-	public static void setSetspeed(double leftSpeed, double rightSpeed) {
-		left.set(ControlMode.PercentOutput, -leftSpeed);
-		right.set(ControlMode.PercentOutput, rightSpeed);
+	public static void setSpeed(double leftSpeed, double rightSpeed) {
+		left_front.set(ControlMode.PercentOutput, -leftSpeed);
+		right_front.set(ControlMode.PercentOutput, rightSpeed);
+		left_back.set(ControlMode.Follower, -leftSpeed);
+		right_back.set(ControlMode.Follower, rightSpeed);
+	}
+	public static void resetEncoders() {
+		left_front.setSelectedSensorPosition(0, 0, 0);
 	}
 
 	public void initDefaultCommand() {
