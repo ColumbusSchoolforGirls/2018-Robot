@@ -13,6 +13,8 @@ import org.usfirst.frc.team677.robot.OI;
 import org.usfirst.frc.team677.robot.Robot;
 import org.usfirst.frc.team677.robot.subsystems.Drivetrain;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
+
 /**
  * An example command.  You can replace me with your own command.
  */
@@ -25,13 +27,17 @@ public class Tankdrive extends Command {
 	// Called just before this Command runs the first time
 	@Override
 	protected void initialize() {
-		Drivetrain.setSpeed(0, 0);
+		Drivetrain.setSpeed(ControlMode.PercentOutput, 0, 0);
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-		Drivetrain.setSpeed(OI.driveStick.getRawAxis(1), OI.driveStick.getRawAxis(5));
+//		if (Math.abs(0.2) == ) {
+//			Drivetrain.setSpeed(ControlMode.PercentOutput, 0, 0);
+//		} else {
+//			Drivetrain.setSpeed(ControlMode.PercentOutput, OI.driveStick.getRawAxis(1), OI.driveStick.getRawAxis(5));
+//		}
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
