@@ -41,7 +41,7 @@ public class Drivetrain extends Subsystem {
 
 	public static void setSpeed(ControlMode mode, double leftSpeed, double rightSpeed) {
 		
-		left_front.set(mode, -leftSpeed);
+		left_front.set(mode, leftSpeed);
 		right_front.set(mode, rightSpeed);
 		left_back.set(ControlMode.Follower, -leftSpeed);
 		right_back.set(ControlMode.Follower, rightSpeed);
