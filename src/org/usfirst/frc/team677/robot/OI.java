@@ -8,6 +8,8 @@
 package org.usfirst.frc.team677.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -19,8 +21,25 @@ public class OI {
 	//// joystick.
 	// You create one by telling it which joystick it's on and which button
 	// number it is.
-	public static Joystick driveStick = new Joystick(Global.JOYSTICK_DRIVE);
-	public static Joystick auxStick = new Joystick(Global.JOYSTICK_AUX);
+	public static Joystick driveCont = new Joystick(Global.JOYSTICK_DRIVE);
+	public static Joystick auxCont = new Joystick(Global.JOYSTICK_AUX);
+	public static Button buttonA = new JoystickButton(driveCont, Global.BUTTON_A);
+	public static Button buttonB = new JoystickButton(driveCont, Global.BUTTON_B);
+	public static Button buttonX = new JoystickButton(driveCont, Global.BUTTON_X);
+	public static Button buttonY = new JoystickButton(driveCont, Global.BUTTON_Y);
+	public static Button leftBumper = new JoystickButton(driveCont, Global.LEFT_BUMPER);
+	public static Button rightBumper = new JoystickButton(driveCont, Global.RIGHT_BUMPER);
+	public static Button select = new JoystickButton(driveCont, Global.SELECT);
+	public static Button start = new JoystickButton(driveCont, Global.START);
+	
+	public static Button auxButtonA = new JoystickButton(auxCont, Global.BUTTON_A);
+	public static Button auxButtonB = new JoystickButton(auxCont, Global.BUTTON_B);
+	public static Button auxButtonX = new JoystickButton(auxCont, Global.BUTTON_X);
+	public static Button auxButtonY = new JoystickButton(auxCont, Global.BUTTON_Y);
+	public static Button auxLeftBumper = new JoystickButton(auxCont, Global.LEFT_BUMPER);
+	public static Button auxRightBumper = new JoystickButton(auxCont, Global.RIGHT_BUMPER);
+	public static Button auxSelect = new JoystickButton(auxCont, Global.SELECT);
+	public static Button auxStart = new JoystickButton(auxCont, Global.START);	
 	
 	// Button button = new JoystickButton(stick, buttonNumber);
 
