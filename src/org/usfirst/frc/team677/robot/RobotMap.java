@@ -14,13 +14,16 @@ package org.usfirst.frc.team677.robot;
  * floating around.
  */
 public class RobotMap {
-	// TalonSRX ports
-	public static final int LEFT_DRIVE_PORT_FRONT = 0;
-	public static final int RIGHT_DRIVE_PORT_FRONT = 1;
-	public static final int LEFT_DRIVE_PORT_BACK = 2;
-	public static final int RIGHT_DRIVE_PORT_BACK = 3;
-	
 	// Solenoid ports
 	public static final int CLAW_SOL_A_PORT = 4;
 	public static final int CLAW_SOL_B_PORT = 5;
+	
+	// TalonSRX Addresses
+	public static final int LEFT_DRIVE_PORT_FRONT = 3;
+	public static final int RIGHT_DRIVE_PORT_FRONT = 2;
+	public static final int LEFT_DRIVE_PORT_BACK = 4;
+	public static final int RIGHT_DRIVE_PORT_BACK = 1;
+	
+	// DIO Ports
+	public static final int LIMIT_SWITCH = 0;
 }

@@ -8,6 +8,7 @@
 package org.usfirst.frc.team677.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -27,6 +28,7 @@ import org.usfirst.frc.team677.robot.subsystems.Arm;
 public class Robot extends TimedRobot {
 	public static final Drivetrain drivetrain = new Drivetrain();
 	public static final Arm arm = new Arm();
+	
 	public static OI m_oi;
 
 	Command m_autonomousCommand;
