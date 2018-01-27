@@ -14,6 +14,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team677.robot.commands.Tankdrive;
 import org.usfirst.frc.team677.robot.subsystems.Drivetrain;
+import org.usfirst.frc.team677.robot.subsystems.Arm;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -24,6 +26,7 @@ import org.usfirst.frc.team677.robot.subsystems.Drivetrain;
  */
 public class Robot extends TimedRobot {
 	public static final Drivetrain drivetrain = new Drivetrain();
+	public static final Arm arm = new Arm();
 	public static OI m_oi;
 
 	Command m_autonomousCommand;

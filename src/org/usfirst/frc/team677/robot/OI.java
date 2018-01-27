@@ -7,6 +7,8 @@
 
 package org.usfirst.frc.team677.robot;
 
+import org.usfirst.frc.team677.robot.commands.Grab;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -40,6 +42,12 @@ public class OI {
 	public static Button auxRightBumper = new JoystickButton(auxCont, Global.RIGHT_BUMPER);
 	public static Button auxSelect = new JoystickButton(auxCont, Global.SELECT);
 	public static Button auxStart = new JoystickButton(auxCont, Global.START);	
+	
+	//Default constructor
+	public OI() {
+		buttonA.whenPressed(new Grab());
+		
+	}
 	
 	// Button button = new JoystickButton(stick, buttonNumber);
 
