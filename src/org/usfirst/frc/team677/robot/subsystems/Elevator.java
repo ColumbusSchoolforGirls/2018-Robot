@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Elevator extends Subsystem {
 	public static TalonSRX pulley = new TalonSRX(RobotMap.ELEVATOR_PORT);
 	public static DigitalInput limit_switch = new DigitalInput(RobotMap.ELEVATOR_PORT);
+	//FIXME: Uncomment the declaration in the robot map when ready, and these errors should go away
 	
 	public Elevator() {
 		

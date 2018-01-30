@@ -43,30 +43,52 @@ public class Drivetrain extends Subsystem {
 		
 		left_front.set(mode, leftSpeed);
 		right_front.set(mode, rightSpeed);
-		left_back.set(ControlMode.Follower, -leftSpeed);
+		left_back.set(ControlMode.Follower, -leftSpeed); //TODO: Is this supposed to be negative?
 		right_back.set(ControlMode.Follower, rightSpeed);
 	}
 
 	public static void resetEncoders() {
 		left_front.setSelectedSensorPosition(0, 0, 0);
 	}
+	
+	public static void setPID(double prop, double integral, double deriv) {
+		left_front.config_kP(0, prop, 0); //TODO: Figure out what the first parameter is supposed to be
+		left_front.config_kI(0, integral, 0);
+		left_front.config_kD(0, deriv, 0);
+		right_front.config_kP(0, prop, 0);
+		right_front.config_kI(0, integral, 0);
+		right_front.config_kD(0, deriv, 0);
+	}
 
-	public double getLeftEncoder() {
+	public static double getLeftEncoder() {
 		return left_front.getSelectedSensorPosition(0);
 	}
 
-	public double getRightEncoder() {
+	public static double getRightEncoder() {
 		return right_front.getSelectedSensorPosition(0);
+	}
+	
+	public static double getLeftError() {
+		return (left_front.getClosedLoopTarget(0) - getLeftEncoder());
+	}
+	
+	public static double getRightError() {
+		return (right_front.getClosedLoopTarget(0) - getRightEncoder());
 	}
 
 	public void update() {
 		SmartDashboard.putNumber("Left Encoder", getLeftEncoder());
 		SmartDashboard.putNumber("Right Encoder", getRightEncoder());
-		// SmartDashboard.putNumber("", value);
+		SmartDashboard.putNumber("Left Setpoint", left_front.getClosedLoopTarget(0));
+		SmartDashboard.putNumber("Right Setpoint", right_front.getClosedLoopTarget(0));
+		SmartDashboard.putNumber("Left Error", getLeftError());
+		SmartDashboard.putNumber("Right Error", getRightError());
 	}
 
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
 		setDefaultCommand(new Tankdrive());
+		
 	}
+	
 }
