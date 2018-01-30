@@ -85,6 +85,7 @@ public class Drivetrain extends Subsystem {
 		SmartDashboard.putNumber("Right Setpoint", right_front.getClosedLoopTarget(0));
 		SmartDashboard.putNumber("Left Error", getLeftError());
 		SmartDashboard.putNumber("Right Error", getRightError());
+		SmartDashboard.putNumber("Facing Angle", imu.getAngle());
 	}
 
 	public void initDefaultCommand() {
