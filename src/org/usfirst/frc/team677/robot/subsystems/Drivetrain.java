@@ -39,6 +39,8 @@ public class Drivetrain extends Subsystem {
 		right_front.setNeutralMode(NeutralMode.Brake);
 		left_back.setNeutralMode(NeutralMode.Brake);
 		right_back.setNeutralMode(NeutralMode.Brake);
+		
+		imu.calibrate();
 	}
 
 	public static void setSpeed(ControlMode mode, double leftSpeed, double rightSpeed) {
@@ -61,6 +63,10 @@ public class Drivetrain extends Subsystem {
 		right_front.config_kI(0, integral, 0);
 		right_front.config_kD(0, deriv, 0);
 	}
+	
+	public static void resetGyroscope() {
+		imu.reset();
+	}
 
 	public static double getLeftEncoder() {
 		return left_front.getSelectedSensorPosition(0);
@@ -77,6 +83,10 @@ public class Drivetrain extends Subsystem {
 	public static double getRightError() {
 		return (right_front.getClosedLoopTarget(0) - getRightEncoder());
 	}
+	
+	public static double getFacingAngle() {
+		return imu.getAngle();
+	}
 
 	public void update() {
 		SmartDashboard.putNumber("Left Encoder", getLeftEncoder());
@@ -91,7 +101,6 @@ public class Drivetrain extends Subsystem {
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
 		setDefaultCommand(new Tankdrive());
-		
 	}
 	
 }
