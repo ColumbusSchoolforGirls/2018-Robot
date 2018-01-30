@@ -7,6 +7,7 @@
 
 package org.usfirst.frc.team677.robot.subsystems;
 
+import org.usfirst.frc.team677.robot.ADIS16448_IMU;
 import org.usfirst.frc.team677.robot.RobotMap;
 import org.usfirst.frc.team677.robot.commands.Tankdrive;
 
@@ -28,6 +29,7 @@ public class Drivetrain extends Subsystem {
 	public static TalonSRX right_front = new TalonSRX(RobotMap.RIGHT_DRIVE_PORT_FRONT);
 	public static TalonSRX left_back = new TalonSRX(RobotMap.LEFT_DRIVE_PORT_BACK);
 	public static TalonSRX right_back = new TalonSRX(RobotMap.RIGHT_DRIVE_PORT_BACK);
+	public static ADIS16448_IMU imu = new ADIS16448_IMU();
 
 	public Drivetrain() {
 		left_front.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);

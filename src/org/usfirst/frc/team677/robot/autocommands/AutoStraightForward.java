@@ -15,12 +15,11 @@ public class AutoStraightForward extends Command {
 	
 	public int setpoint;
 
-    public AutoStraightForward() {
+    public AutoStraightForward(int ticks) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.drivetrain);
-    	setpoint = Global.AUTO_STRAIGHT_FORWARD_SETPOINT;
-    	//TODO: Change to an argument
+    	setpoint = ticks; //When calling this method, ticks should be one of the Global constants
     }
 
     // Called just before this Command runs the first time
