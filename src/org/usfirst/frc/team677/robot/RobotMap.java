@@ -25,7 +25,7 @@ public class RobotMap {
 	public static final int RIGHT_DRIVE_PORT_BACK = 1;
 	
 	// Victor PWM ports
-	// public static final int ELEVATOR_PORT = 1;
+	public static final int ELEVATOR_PORT = 1;
 	// TODO: Uncomment this when ready to get the right setting
 	
 	// DIO Ports
