@@ -13,17 +13,17 @@ public class ElevatorGoDown extends Command {
     public ElevatorGoDown() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.elevator);
+    	//requires(Robot.elevator);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.elevator.drive(0);
+//    	Robot.elevator.drive(0);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.elevator.drive(0);
+//    	Robot.elevator.drive(0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
