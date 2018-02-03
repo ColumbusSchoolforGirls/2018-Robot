@@ -18,14 +18,17 @@ public class Global {
 	public static final double DEAD_ZONE = 0.2;
 	//PID control constants
 	//TODO: Tune these values
-	public static double drivetrainProp = 0;
-	public static double drivetrainInt = 0;
-	public static double drivetrainDeriv = 0;
-	public static double drivetrainFeedforward = 0;
-	public static double drivetrainIzone = 0;
+	public static double DRIVETRAIN_P = 0;
+	public static double DRIVETRAIN_I = 0;
+	public static double DRIVETRAIN_D = 0;
+	public static double DRIVETRAIN_IZONE = 0;
+	public static double ANGLE_P = 0;
+	public static double ANGLE_I = 0;
+	public static double ANGLE_D = 0;
+	public static double ANGLE_IZONE = 0;
 	//Auto setpoints, measured in encoder ticks
 	//TODO: Tune these values
-	public static final int AUTO_STRAIGHT_FORWARD_SETPOINT = 1000;
+	public static double DRIVETRAIN_ANGLE = 0;
 	
 	//Miscellaneous
 	public static final int ENCODER_TOLERANCE = 25; //TODO: Tune this
