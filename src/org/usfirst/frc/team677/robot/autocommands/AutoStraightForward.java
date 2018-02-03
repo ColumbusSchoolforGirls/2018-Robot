@@ -24,14 +24,10 @@ public class AutoStraightForward extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Drivetrain.setPID(Global.drivetrainProp, Global.drivetrainInt, Global.drivetrainDeriv);
-    	Drivetrain.setSpeed(ControlMode.PercentOutput, 0, 0);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Drivetrain.setSpeed(ControlMode.Position, setpoint, setpoint);
-    	//TODO: Make sure this is the right control mode
     }
 
     // Make this return true when this Command no longer needs to run execute()

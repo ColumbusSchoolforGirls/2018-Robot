@@ -17,10 +17,13 @@ public class PIDCalculator {
 	double lastTime = 0;
 	double currentPosition = 0;
 	
-	public PIDCalculator (double propValue, double integralValue, double derivValue) {
+	public PIDCalculator (double propValue, double integralValue, double derivValue, double IZone) {
 		propConstant = propValue;
 		integralConstant = integralValue;
 		derivConstant = derivValue;
+		this.IZone = IZone;
+		lastTime = 0;
+		lastError = 0;
 	}
 	
 	public double getOutput() {
