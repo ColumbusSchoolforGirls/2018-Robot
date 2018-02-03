@@ -45,7 +45,8 @@ public class OI {
 	
 	//Default constructor
 	public OI() {
-		buttonA.whenPressed(new Grab());
+		auxButtonA.whileHeld(new Grab(false));
+		auxButtonA.whenReleased(new Grab(true));
 		
 	}
 	

@@ -8,9 +8,12 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class Grab extends Command {
+	
+	boolean open;
 
-    public Grab() {
+    public Grab(boolean clawDirection) {
     	requires(Robot.arm);
+    	open = clawDirection;
     }
 
     // Called just before this Command runs the first time
@@ -20,7 +23,7 @@ public class Grab extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Arm.grab(true);
+    	Arm.grab(open);
     }
 
     // Make this return true when this Command no longer needs to run execute()
