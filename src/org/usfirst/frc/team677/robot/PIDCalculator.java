@@ -11,7 +11,6 @@ public class PIDCalculator {
 	double integral = 0;
 	double deriv = 0;
 	double output = 0;
-	double error = 0;
 	double lastError = 0;
 	double runningSum = 0;
 	double lastTime = 0;
@@ -26,7 +25,7 @@ public class PIDCalculator {
 		lastError = 0;
 	}
 	
-	public double getOutput() {
+	public double getOutput(double error) {
 		prop = propConstant * error;
 		
 		if (error <= Math.abs(IZone)) {
