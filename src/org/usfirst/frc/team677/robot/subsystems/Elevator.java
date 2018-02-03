@@ -8,6 +8,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -15,25 +16,27 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Elevator extends Subsystem {
 	public static TalonSRX pulley = new TalonSRX(RobotMap.ELEVATOR_PORT);
-	public static DigitalInput limit_switch = new DigitalInput(RobotMap.ELEVATOR_PORT);
-	//FIXME: Uncomment the declaration in the robot map when ready, and these errors should go away
+	public static Encoder pulleyEncoder = new Encoder(RobotMap.PULLEY_ENCODER_A, RobotMap.PULLEY_ENCODER_B);
 	
 	public Elevator() {
-		
+		pulleyEncoder.reset();
 	}
 
-	public static void drive (double speed) {
+	public void drive (double speed) {
 		pulley.set(ControlMode.PercentOutput, speed);
 	}
 	
-	public boolean getLimitSwitch() {
-		return limit_switch.get();
+	public static double getEncoder() {
+		return pulleyEncoder.get();
+	}
+	
+	public static void resetEncoder() {
+		pulleyEncoder.reset();
 	}
 	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
-    	//setDefaultCommand(new ElevatorGoDown());
+    	setDefaultCommand(new ElevatorGoDown());
     }
 }
 

@@ -18,6 +18,7 @@ import org.usfirst.frc.team677.robot.autocommands.AutoStraightForward;
 import org.usfirst.frc.team677.robot.autocommands.NoAuto;
 import org.usfirst.frc.team677.robot.commands.Tankdrive;
 import org.usfirst.frc.team677.robot.subsystems.Drivetrain;
+import org.usfirst.frc.team677.robot.subsystems.Elevator;
 import org.usfirst.frc.team677.robot.subsystems.Arm;
 
 
@@ -31,6 +32,7 @@ import org.usfirst.frc.team677.robot.subsystems.Arm;
 public class Robot extends TimedRobot {
 	public static final Drivetrain drivetrain = new Drivetrain();
 	public static final Arm arm = new Arm();
+	public static final Elevator elevator = new Elevator();
 	
 	public static OI m_oi;
 

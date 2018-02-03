@@ -26,9 +26,14 @@ public class Global {
 	public static double ANGLE_I = 0;
 	public static double ANGLE_D = 0;
 	public static double ANGLE_IZONE = 0;
+	public static double ELEVATOR_P = 0;
+	public static double ELEVATOR_I = 0;
+	public static double ELEVATOR_D = 0;
+	public static double ELEVATOR_IZONE = 0;
 	//Auto setpoints, measured in encoder ticks
 	//TODO: Tune these values
 	public static double DRIVETRAIN_ANGLE = 0;
+	public static double AUTO_STRAIGHT_FORWARD_SETPOINT = 1000;
 	
 	//Miscellaneous
 	public static final int ENCODER_TOLERANCE = 25; //TODO: Tune this
