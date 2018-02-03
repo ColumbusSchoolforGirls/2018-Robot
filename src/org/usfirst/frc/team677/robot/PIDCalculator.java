@@ -23,7 +23,7 @@ public class PIDCalculator {
 		derivConstant = derivValue;
 	}
 	
-	public double calculate() {
+	public double getOutput() {
 		prop = propConstant * error;
 		
 		if (error <= Math.abs(IZone)) {
