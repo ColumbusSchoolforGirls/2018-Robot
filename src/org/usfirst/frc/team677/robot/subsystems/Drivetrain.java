@@ -40,6 +40,7 @@ public class Drivetrain extends Subsystem {
 		left_back.setNeutralMode(NeutralMode.Brake);
 		right_back.setNeutralMode(NeutralMode.Brake);
 		
+		imu.reset();
 		imu.calibrate();
 	}
 
@@ -47,8 +48,8 @@ public class Drivetrain extends Subsystem {
 		
 		left_front.set(mode, -leftSpeed);
 		right_front.set(mode, rightSpeed);
-		left_back.set(ControlMode.Follower, -leftSpeed); //TODO: Is this supposed to be negative?
-		right_back.set(ControlMode.Follower, rightSpeed);
+		left_back.set(mode, -leftSpeed); //TODO: Is this supposed to be negative?
+		right_back.set(mode, rightSpeed);
 	}
 
 	public static void resetEncoders() {
@@ -77,11 +78,11 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	public static double getLeftError() {
-		return (left_front.getClosedLoopTarget(0) - getLeftEncoder());
+		return (left_front.getClosedLoopError(0));
 	}
 	
 	public static double getRightError() {
-		return (right_front.getClosedLoopTarget(0) - getRightEncoder());
+		return (right_front.getClosedLoopError(0));
 	}
 	
 	public static double getFacingAngle() {
@@ -91,8 +92,6 @@ public class Drivetrain extends Subsystem {
 	public void update() {
 		SmartDashboard.putNumber("Left Encoder", getLeftEncoder());
 		SmartDashboard.putNumber("Right Encoder", getRightEncoder());
-		SmartDashboard.putNumber("Left Setpoint", left_front.getClosedLoopTarget(0));
-		SmartDashboard.putNumber("Right Setpoint", right_front.getClosedLoopTarget(0));
 		SmartDashboard.putNumber("Left Error", getLeftError());
 		SmartDashboard.putNumber("Right Error", getRightError());
 		SmartDashboard.putNumber("Facing Angle", imu.getAngle());
