@@ -17,6 +17,8 @@ public class RobotMap {
 	// Solenoid ports
 	public static final int CLAW_SOL_A_PORT = 4;
 	public static final int CLAW_SOL_B_PORT = 5;
+	public static final int RAMP_SOL_A_PORT = 0; //TODO: Replace this with the actual value
+	public static final int RAMP_SOL_B_PORT = 1; //TODO: Replace this with the actual value
 	
 	// TalonSRX Addresses
 	public static final int LEFT_DRIVE_PORT_FRONT = 3;

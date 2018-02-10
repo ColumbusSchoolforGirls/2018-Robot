@@ -34,6 +34,16 @@ public class Global {
 	//TODO: Tune these values
 	public static double DRIVETRAIN_ANGLE = 0;
 	public static double AUTO_STRAIGHT_FORWARD_SETPOINT = 1000;
+	public static double AUTO_SIDE_DISTANCE_ONE = 1000;
+	public static double AUTO_SIDE_DISTANCE_TWO = 1000;
+	public static double AUTO_FRONT_DISTANCE_ONE = 1000;
+	public static double AUTO_FRONT_DISTANCE_TWO = 1000;
+	public static double AUTO_FRONT_DISTANCE_THREE = 1000;
+	public static double AUTO_BACK_DISTANCE_ONE = 1000;
+	public static double AUTO_BACK_DISTANCE_TWO = 1000;
+	public static double AUTO_BACK_DISTANCE_THREE = 1000;
+	public static double AUTO_TURN_RIGHT = 1000;
+	public static double AUTO_TURN_LEFT = 1000;
 	
 	//Miscellaneous
 	public static final int ENCODER_TOLERANCE = 25; //TODO: Tune this
