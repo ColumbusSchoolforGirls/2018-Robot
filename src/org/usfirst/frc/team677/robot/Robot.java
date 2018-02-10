@@ -14,6 +14,10 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team677.robot.autocommands.AutoBaseline;
+import org.usfirst.frc.team677.robot.autocommands.AutoCenter;
+import org.usfirst.frc.team677.robot.autocommands.AutoLeft;
+import org.usfirst.frc.team677.robot.autocommands.AutoRight;
 import org.usfirst.frc.team677.robot.autocommands.AutoStraightForward;
 import org.usfirst.frc.team677.robot.autocommands.NoAuto;
 import org.usfirst.frc.team677.robot.commands.Tankdrive;
@@ -49,7 +53,10 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		m_oi = new OI();
 		m_chooser.addDefault("No Auto", new NoAuto());
-		m_chooser.addObject("Straight Forward", new AutoStraightForward(Global.AUTO_STRAIGHT_FORWARD_SETPOINT));
+		m_chooser.addObject("Straight Forward", new AutoBaseline());
+		m_chooser.addObject("Left Position", new AutoLeft());
+		m_chooser.addObject("Center Position", new AutoCenter());
+		m_chooser.addObject("Right Position", new AutoRight());
 		SmartDashboard.putData("Auto mode", m_chooser);
 	}
 

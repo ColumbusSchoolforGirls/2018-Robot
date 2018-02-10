@@ -24,9 +24,9 @@ public class AutoRight extends Command {
     	gameData = DriverStation.getInstance().getGameSpecificMessage();
     			if(gameData.length()>0){
     				if(gameData.charAt(0) == 'L') {
-    					
+    					new LRightPosition();
     				} else {
-    					
+    					new RRightPosition();
     				}
     			}
     }

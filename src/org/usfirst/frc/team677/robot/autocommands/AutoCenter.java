@@ -24,9 +24,9 @@ public class AutoCenter extends Command {
     	gameData = DriverStation.getInstance().getGameSpecificMessage();
     			if(gameData.length()>0){
     				if(gameData.charAt(0) == 'L') {
-    					
+    					new LCenterPosition();
     				} else {
-    					
+    					new RCenterPosition();
     				}
     			}
     }

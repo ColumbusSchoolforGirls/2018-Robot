@@ -24,9 +24,9 @@ public class AutoLeft extends Command {
     	gameData = DriverStation.getInstance().getGameSpecificMessage();
     			if(gameData.length()>0){
     				if(gameData.charAt(0) == 'L') {
-    					
+    					new LLeftPosition();
     				} else {
-    					
+    					new RLeftPosition();
     				}
     			}
     }

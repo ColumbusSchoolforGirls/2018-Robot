@@ -32,16 +32,18 @@ public class Global {
 	public static double ELEVATOR_IZONE = 0;
 	//Auto setpoints, measured in encoder ticks
 	//TODO: Tune these values
+	//Note: It's 36506 ticks from the starting point to the edge of the switch. 
+	//Also, I am rounding these to integers, just for the sake of everyone's sanity. - Evelyn
 	public static double DRIVETRAIN_ANGLE = 0;
-	public static double AUTO_STRAIGHT_FORWARD_SETPOINT = 1000;
-	public static double AUTO_SIDE_DISTANCE_ONE = 1000;
-	public static double AUTO_SIDE_DISTANCE_TWO = 1000;
-	public static double AUTO_FRONT_DISTANCE_ONE = 1000;
-	public static double AUTO_FRONT_DISTANCE_TWO = 1000;
-	public static double AUTO_FRONT_DISTANCE_THREE = 1000;
-	public static double AUTO_BACK_DISTANCE_ONE = 1000;
-	public static double AUTO_BACK_DISTANCE_TWO = 1000;
-	public static double AUTO_BACK_DISTANCE_THREE = 1000;
+	public static double AUTO_STRAIGHT_FORWARD_SETPOINT = 26076; //Tuned! Assuming just touching the baseline.
+	public static double AUTO_SIDE_DISTANCE_ONE = 41722; //Tuned! Assuming aiming for the center of the switch.
+	public static double AUTO_SIDE_DISTANCE_TWO = 13038; //Tuned! Assuming starting in either left or right corner.
+	public static double AUTO_FRONT_DISTANCE_ONE = 18253; //Tuned! Assuming lateral shift halfway through.
+	public static double AUTO_FRONT_DISTANCE_TWO = 14342; //Tuned! Assuming a lateral shift of 5.5 feet and starting in the exact center.
+	public static double AUTO_FRONT_DISTANCE_THREE = 18253; //Tuned! Assuming lateral shift halfway through.
+	public static double AUTO_BACK_DISTANCE_ONE = 52152; //Tuned! Assuming going 2 feet behind the switch.
+	public static double AUTO_BACK_DISTANCE_TWO = 46937; //Tuned! Assuming starting in either left or right corner.
+	public static double AUTO_BACK_DISTANCE_THREE = 10430; //Tuned! Assuming going 2 feet behind the switch.
 	public static double AUTO_TURN_RIGHT = 1000;
 	public static double AUTO_TURN_LEFT = 1000;
 	

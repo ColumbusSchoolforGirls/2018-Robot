@@ -40,8 +40,8 @@ public class Drivetrain extends Subsystem {
 		left_back.setNeutralMode(NeutralMode.Brake);
 		right_back.setNeutralMode(NeutralMode.Brake);
 		
-		imu.reset();
 		imu.calibrate();
+		imu.reset();
 	}
 
 	public static void setSpeed(ControlMode mode, double leftSpeed, double rightSpeed) {
@@ -70,7 +70,7 @@ public class Drivetrain extends Subsystem {
 	}
 
 	public static double getLeftEncoder() {
-		return left_front.getSelectedSensorPosition(0);
+		return -left_front.getSelectedSensorPosition(0);
 	}
 
 	public static double getRightEncoder() {
