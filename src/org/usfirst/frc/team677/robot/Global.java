@@ -33,6 +33,7 @@ public class Global {
 	//Auto setpoints, measured in encoder ticks
 	//TODO: Tune these values
 	//Note: It's 36506 ticks from the starting point to the edge of the switch. 
+	//Further note: 16213 ticks on a turn is a full rotation.
 	//Also, I am rounding these to integers, just for the sake of everyone's sanity. - Evelyn
 	public static double DRIVETRAIN_ANGLE = 0;
 	public static double AUTO_STRAIGHT_FORWARD_SETPOINT = 26076; //Tuned! Assuming just touching the baseline.
@@ -44,8 +45,8 @@ public class Global {
 	public static double AUTO_BACK_DISTANCE_ONE = 52152; //Tuned! Assuming going 2 feet behind the switch.
 	public static double AUTO_BACK_DISTANCE_TWO = 46937; //Tuned! Assuming starting in either left or right corner.
 	public static double AUTO_BACK_DISTANCE_THREE = 10430; //Tuned! Assuming going 2 feet behind the switch.
-	public static double AUTO_TURN_RIGHT = 1000;
-	public static double AUTO_TURN_LEFT = 1000;
+	public static double AUTO_TURN_RIGHT = 4053; //Tuned! This is for 90 degrees.
+	public static double AUTO_TURN_LEFT = -4053; //Tuned! This is for 90 degrees.
 	
 	//Miscellaneous
 	public static final int ENCODER_TOLERANCE = 25; //TODO: Tune this
