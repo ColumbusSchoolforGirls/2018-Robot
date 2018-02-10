@@ -7,6 +7,8 @@
 
 package org.usfirst.frc.team677.robot;
 
+import org.usfirst.frc.team677.robot.commands.ElevatorGoDown;
+import org.usfirst.frc.team677.robot.commands.ElevatorGoUp;
 import org.usfirst.frc.team677.robot.commands.Grab;
 import org.usfirst.frc.team677.robot.commands.RampExtend;
 
@@ -49,6 +51,11 @@ public class OI {
 		auxButtonA.whileHeld(new Grab(false));
 		auxButtonA.whenReleased(new Grab(true));
 		buttonA.whenPressed(new RampExtend());
+		if(auxCont.getRawAxis(1) > Global.DEAD_ZONE) {
+			new ElevatorGoUp(auxCont.getRawAxis(1)*0.4);
+		} else {
+			new ElevatorGoDown();
+		}
 		
 	}
 	
