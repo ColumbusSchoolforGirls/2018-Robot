@@ -12,9 +12,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Ramp extends Subsystem {
 	
-	public static DoubleSolenoid rampSolenoid = new DoubleSolenoid(RobotMap.RAMP_SOL_A_PORT, RobotMap.RAMP_SOL_B_PORT);
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
+	public static DoubleSolenoid rampReleaseSolenoid = new DoubleSolenoid(RobotMap.RAMPRELEASE_SOL_A_PORT, RobotMap.RAMPRELEASE_SOL_B_PORT);
+	public static DoubleSolenoid rampLiftSolenoid = new DoubleSolenoid(RobotMap.RAMPLIFT_SOL_A_PORT, RobotMap.RAMPLIFT_SOL_B_PORT);
 	
 	public Ramp() {
 		release(false);
@@ -24,11 +23,18 @@ public class Ramp extends Subsystem {
         
     }
     
-    public static void release(boolean isEndgame) {
-    	if (isEndgame) {
-    		rampSolenoid.set(Value.kForward);
+    public static void release(boolean release) {
+    	if (release) {
+    		rampReleaseSolenoid.set(Value.kForward);
     	} else {
-    		rampSolenoid.set(Value.kReverse);
+    		rampReleaseSolenoid.set(Value.kReverse);
+    	}
+    }
+    public static void lift(boolean lift) {
+    	if (lift) {
+    		rampLiftSolenoid.set(Value.kForward);
+    	} else {
+    		rampLiftSolenoid.set(Value.kReverse);
     	}
     }
 }

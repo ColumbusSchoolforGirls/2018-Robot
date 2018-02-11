@@ -24,14 +24,6 @@ public class Arm extends Subsystem {
 		}
 	}
 	
-	public static void compressorOn(){
-		compressor.start();
-	}
-	
-	public static void compressorOff() {
-		compressor.stop();
-	}
-	
 	public void initDefaultCommand() {
 		setDefaultCommand(new Grab(false));
 	}

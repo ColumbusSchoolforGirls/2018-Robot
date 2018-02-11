@@ -10,7 +10,7 @@ package org.usfirst.frc.team677.robot;
 import org.usfirst.frc.team677.robot.commands.ElevatorGoDown;
 import org.usfirst.frc.team677.robot.commands.ElevatorGoUp;
 import org.usfirst.frc.team677.robot.commands.Grab;
-import org.usfirst.frc.team677.robot.commands.RampExtend;
+import org.usfirst.frc.team677.robot.commands.RampRelease;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -50,7 +50,7 @@ public class OI {
 	public OI() {
 		auxButtonA.whileHeld(new Grab(false));
 		auxButtonA.whenReleased(new Grab(true));
-		buttonA.whenPressed(new RampExtend());
+		buttonA.whenPressed(new RampRelease());
 		if(auxCont.getRawAxis(1) > Global.DEAD_ZONE) {
 			new ElevatorGoUp(auxCont.getRawAxis(1)*0.4);
 		} else {

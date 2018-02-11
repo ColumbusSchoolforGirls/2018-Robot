@@ -8,9 +8,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class RampExtend extends Command {
+public class RampRelease extends Command {
 
-    public RampExtend() {
+    public RampRelease() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.ramp);

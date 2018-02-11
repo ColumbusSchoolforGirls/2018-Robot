@@ -1,29 +1,28 @@
 package org.usfirst.frc.team677.robot.commands;
 
 import org.usfirst.frc.team677.robot.Robot;
-import org.usfirst.frc.team677.robot.subsystems.Arm;
+import org.usfirst.frc.team677.robot.subsystems.Ramp;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class Grab extends Command {
-	
-	boolean open;
+public class RampLift extends Command {
 
-    public Grab(boolean clawDirection) {
-    	requires(Robot.arm);
-    	open = clawDirection;
+    public RampLift() {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+    	requires(Robot.ramp);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	
+    	Ramp.lift(true); //TODO: Add a control for this
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Arm.grab(open);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -33,7 +32,6 @@ public class Grab extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	
     }
 
     // Called when another command which requires one or more of the same
