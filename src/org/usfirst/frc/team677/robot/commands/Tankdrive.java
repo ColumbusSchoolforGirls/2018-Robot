@@ -22,18 +22,13 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 public class Tankdrive extends Command {
 	
 	public Tankdrive() {
-		// Use requires() here to declare subsystem dependencies
 		requires(Robot.drivetrain);
 	}
 
-	// Called just before this Command runs the first time
-	@Override
 	protected void initialize() {
 		Drivetrain.setSpeed(ControlMode.PercentOutput, 0, 0);
 	}
 
-	// Called repeatedly when this Command is scheduled to run
-	@Override
 	protected void execute() {
 		if (Math.abs(OI.driveCont.getRawAxis(1)) <= Global.DEAD_ZONE && Math.abs(OI.driveCont.getRawAxis(5)) <= Global.DEAD_ZONE) {
 			Drivetrain.setSpeed(ControlMode.PercentOutput, 0, 0);
@@ -46,21 +41,14 @@ public class Tankdrive extends Command {
 		}
 	}
 
-	// Make this return true when this Command no longer needs to run execute()
-	@Override
 	protected boolean isFinished() {
 		return false;
 	}
 
-	// Called once after isFinished returns true
-	@Override
 	protected void end() {
 
 	}
 
-	// Called when another command which requires one or more of the same
-	// subsystems is scheduled to run
-	@Override
 	protected void interrupted() {
 	}
 }

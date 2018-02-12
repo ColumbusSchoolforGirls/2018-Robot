@@ -26,21 +26,17 @@ public class AutoStraightForward extends Command {
 	public double setpoint;
 
     public AutoStraightForward(double ticks) {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
     	requires(Robot.drivetrain);
     	setpoint = ticks; //When calling this method, ticks should be one of the Global constants
     	distPID = new PIDCalculator(Global.DRIVETRAIN_P, Global.DRIVETRAIN_I, Global.DRIVETRAIN_D, Global.DRIVETRAIN_IZONE); //TODO: Tune this
     	anglePID = new PIDCalculator(Global.ANGLE_P,Global.ANGLE_I,Global.ANGLE_D,Global.ANGLE_IZONE);
     }
 
-    // Called just before this Command runs the first time
     protected void initialize() {
     	Drivetrain.resetEncoders();
     	angle = Drivetrain.getFacingAngle();
     }
 
-    // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	leftError = setpoint - Drivetrain.getLeftEncoder();
     	rightError = setpoint - Drivetrain.getRightEncoder();
@@ -53,7 +49,6 @@ public class AutoStraightForward extends Command {
     	Drivetrain.setSpeed(ControlMode.PercentOutput, leftOutput, rightOutput);
     }
 
-    // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         if(Drivetrain.getLeftError() <= Math.abs(Global.ENCODER_TOLERANCE) && Drivetrain.getRightError() <= Math.abs(Global.ENCODER_TOLERANCE)) {
         	return true;
@@ -62,13 +57,10 @@ public class AutoStraightForward extends Command {
         }
     }
 
-    // Called once after isFinished returns true
     protected void end() {
     	Drivetrain.setSpeed(ControlMode.PercentOutput, 0, 0);
     }
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
     protected void interrupted() {
     }
 }

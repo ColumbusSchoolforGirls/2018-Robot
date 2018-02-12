@@ -22,31 +22,25 @@ public class ElevatorGoUp extends Command {
     	setpoint = ticks;
     }
 
-    // Called just before this Command runs the first time
     protected void initialize() {
     	Elevator.resetEncoder();
     	position = 0;
     }
 
-    // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	error = setpoint - position;
     	output = elevatorPID.getOutput(error);
     	
-    	Robot.elevator.drive(output);
+    	Elevator.drive(output);
     }
 
-    // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return (error <= Global.ENCODER_TOLERANCE);
     }
 
-    // Called once after isFinished returns true
     protected void end() {
     }
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
     protected void interrupted() {
     }
 }

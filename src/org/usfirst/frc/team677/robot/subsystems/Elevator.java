@@ -1,7 +1,7 @@
 package org.usfirst.frc.team677.robot.subsystems;
 
 import org.usfirst.frc.team677.robot.RobotMap;
-import org.usfirst.frc.team677.robot.commands.ElevatorGoDown;
+import org.usfirst.frc.team677.robot.commands.ElevatorManual;
 import org.usfirst.frc.team677.robot.commands.Tankdrive;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
@@ -22,7 +22,7 @@ public class Elevator extends Subsystem {
 		pulleyEncoder.reset();
 	}
 
-	public void drive (double speed) {
+	public static void drive(double speed) {
 		pulley.set(ControlMode.PercentOutput, speed);
 	}
 	
@@ -35,8 +35,7 @@ public class Elevator extends Subsystem {
 	}
 	
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-    	setDefaultCommand(new ElevatorGoDown());
+    	setDefaultCommand(new ElevatorManual());
     }
 }
 
