@@ -1,6 +1,7 @@
 package org.usfirst.frc.team677.robot.autocommands;
 
 import org.usfirst.frc.team677.robot.Global;
+import org.usfirst.frc.team677.robot.commands.Grab;
 import org.usfirst.frc.team677.robot.commands.ResetGyro;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
@@ -17,6 +18,6 @@ public class RLeftPosition extends CommandGroup {
     	addSequential(new AutoStraightForward(Global.AUTO_BACK_DISTANCE_TWO));
     	addSequential(new Turn(Global.AUTO_TURN_RIGHT));
     	addSequential(new AutoStraightForward(Global.AUTO_BACK_DISTANCE_THREE));
-    	//TODO: Add command to drop the cube
+    	addSequential(new Grab(true)); //TODO: Make sure this is the right direction
     }
 }
