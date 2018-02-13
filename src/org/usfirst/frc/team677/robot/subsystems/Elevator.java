@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Elevator extends Subsystem {
 	public static TalonSRX pulley = new TalonSRX(RobotMap.ELEVATOR_PORT);
 	public static Encoder pulleyEncoder = new Encoder(RobotMap.PULLEY_ENCODER_A, RobotMap.PULLEY_ENCODER_B);
+	public static DigitalInput limitSwitch = new DigitalInput(RobotMap.LIMIT_SWITCH);
 	
 	public Elevator() {
 		pulleyEncoder.reset();
@@ -32,6 +33,10 @@ public class Elevator extends Subsystem {
 	
 	public static void resetEncoder() {
 		pulleyEncoder.reset();
+	}
+	
+	public static boolean checkSwitch() {
+		return limitSwitch.get();
 	}
 	
     public void initDefaultCommand() {

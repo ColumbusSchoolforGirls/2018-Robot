@@ -32,4 +32,7 @@ public class RobotMap {
 	// DIO Ports
 	public static final int PULLEY_ENCODER_A = 0;
 	public static final int PULLEY_ENCODER_B = 1;
+	
+	//Limit switch
+	public static final int LIMIT_SWITCH = 0; //TODO: Replace this with the actual value
 }

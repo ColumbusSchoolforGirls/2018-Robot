@@ -24,7 +24,11 @@ public class ElevatorManual extends Command {
 
 	protected void execute() {
 		if (OI.auxCont.getRawAxis(1) < -Global.DEAD_ZONE) {
-			Elevator.drive(0.60 * OI.auxCont.getRawAxis(1));
+			if (Elevator.checkSwitch()) {
+				Elevator.drive(0.60 * OI.auxCont.getRawAxis(1));
+			} else {
+				Elevator.drive(0.60); //TODO: Replace this with the correct speed to hold the elevator in place
+			}
 		} else {
 			Elevator.drive(0);
 		}
