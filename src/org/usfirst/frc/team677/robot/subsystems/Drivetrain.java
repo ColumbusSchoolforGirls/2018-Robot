@@ -79,8 +79,8 @@ public class Drivetrain extends Subsystem {
 	public void update() {
 		SmartDashboard.putNumber("Left Encoder", getLeftEncoder());
 		SmartDashboard.putNumber("Right Encoder", getRightEncoder());
-		SmartDashboard.putNumber("Left Error", getLeftError());
-		SmartDashboard.putNumber("Right Error", getRightError());
+//		SmartDashboard.putNumber("Left Error", getLeftError());
+//		SmartDashboard.putNumber("Right Error", getRightError());
 		SmartDashboard.putNumber("Facing Angle", imu.getAngle());
 	}
 

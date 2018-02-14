@@ -16,9 +16,6 @@ import org.usfirst.frc.team677.robot.subsystems.Drivetrain;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
-/**
- * An example command.  You can replace me with your own command.
- */
 public class Tankdrive extends Command {
 	
 	public Tankdrive() {
@@ -33,11 +30,11 @@ public class Tankdrive extends Command {
 		if (Math.abs(OI.driveCont.getRawAxis(1)) <= Global.DEAD_ZONE && Math.abs(OI.driveCont.getRawAxis(5)) <= Global.DEAD_ZONE) {
 			Drivetrain.setSpeed(ControlMode.PercentOutput, 0, 0);
 		} else if (Math.abs(OI.driveCont.getRawAxis(1)) <= Global.DEAD_ZONE && Math.abs(OI.driveCont.getRawAxis(5)) > Global.DEAD_ZONE) {
-			Drivetrain.setSpeed(ControlMode.PercentOutput, 0, OI.driveCont.getRawAxis(5));
+			Drivetrain.setSpeed(ControlMode.PercentOutput, 0, OI.driveCont.getRawAxis(5)*.5);
 		} else if (Math.abs(OI.driveCont.getRawAxis(1)) > Global.DEAD_ZONE && Math.abs(OI.driveCont.getRawAxis(5)) <= Global.DEAD_ZONE){
-			Drivetrain.setSpeed(ControlMode.PercentOutput, OI.driveCont.getRawAxis(1), 0);
+			Drivetrain.setSpeed(ControlMode.PercentOutput, OI.driveCont.getRawAxis(1)*.5, 0);
 		} else {
-			Drivetrain.setSpeed(ControlMode.PercentOutput, OI.driveCont.getRawAxis(1), OI.driveCont.getRawAxis(5));
+			Drivetrain.setSpeed(ControlMode.PercentOutput, OI.driveCont.getRawAxis(1)*.5, OI.driveCont.getRawAxis(5)*.5);
 		}
 	}
 

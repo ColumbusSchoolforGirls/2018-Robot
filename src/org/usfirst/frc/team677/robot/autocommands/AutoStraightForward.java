@@ -8,6 +8,7 @@ import org.usfirst.frc.team677.robot.subsystems.Drivetrain;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -28,7 +29,7 @@ public class AutoStraightForward extends Command {
     public AutoStraightForward(double ticks) {
     	requires(Robot.drivetrain);
     	setpoint = ticks; //When calling this method, ticks should be one of the Global constants
-    	distPID = new PIDCalculator(Global.DRIVETRAIN_P, Global.DRIVETRAIN_I, Global.DRIVETRAIN_D, Global.DRIVETRAIN_IZONE); //TODO: Tune this
+    	distPID = new PIDCalculator(SmartDashboard.getNumber("Drivetrain P", Global.DRIVETRAIN_P), Global.DRIVETRAIN_I, Global.DRIVETRAIN_D, Global.DRIVETRAIN_IZONE); //TODO: Tune this
     	anglePID = new PIDCalculator(Global.ANGLE_P,Global.ANGLE_I,Global.ANGLE_D,Global.ANGLE_IZONE);
     }
 
@@ -50,11 +51,8 @@ public class AutoStraightForward extends Command {
     }
 
     protected boolean isFinished() {
-        if(Drivetrain.getLeftError() <= Math.abs(Global.ENCODER_TOLERANCE) && Drivetrain.getRightError() <= Math.abs(Global.ENCODER_TOLERANCE)) {
-        	return true;
-        } else {
-        	return false;
-        }
+        return Drivetrain.getRightError() <= Math.abs(Global.ENCODER_TOLERANCE);
+        //Drivetrain.getLeftError() <= Math.abs(Global.ENCODER_TOLERANCE) &&
     }
 
     protected void end() {

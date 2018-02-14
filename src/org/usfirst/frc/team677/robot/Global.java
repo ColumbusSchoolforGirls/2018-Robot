@@ -18,7 +18,7 @@ public class Global {
 	public static final double DEAD_ZONE = 0.2;
 	//PID control constants
 	//TODO: Tune these values
-	public static double DRIVETRAIN_P = 0;
+	public static double DRIVETRAIN_P = .5;
 	public static double DRIVETRAIN_I = 0;
 	public static double DRIVETRAIN_D = 0;
 	public static double DRIVETRAIN_IZONE = 0;
