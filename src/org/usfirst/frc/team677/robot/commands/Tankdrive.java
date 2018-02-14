@@ -17,6 +17,14 @@ import org.usfirst.frc.team677.robot.subsystems.Drivetrain;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
 public class Tankdrive extends Command {
+	double leftLimit = 0.05;
+	double leftChange;
+	double leftJoystick;
+	double leftLimitedJoystick = 0;
+	double rightChange;
+	double rightLimit = 0.05;
+	double rightLimitedJoystick = 0;
+	double rightJoystick;
 	
 	public Tankdrive() {
 		requires(Robot.drivetrain);
@@ -29,10 +37,8 @@ public class Tankdrive extends Command {
 	protected void execute() {
 		
 		//Rate limit filters on both sides
-		double leftChange;
-		double leftJoystick = OI.driveCont.getRawAxis(1);
-		double leftLimit = 0.2;
-		double leftLimitedJoystick = 0;
+		leftJoystick = OI.driveCont.getRawAxis(1);
+
 		leftChange = leftJoystick - leftLimitedJoystick;
 		if (leftChange > leftLimit && leftJoystick > 0) {
 			leftChange = leftLimit;
@@ -43,10 +49,8 @@ public class Tankdrive extends Command {
 		}
 		leftLimitedJoystick += leftChange;
 		
-		double rightChange;
-		double rightJoystick = OI.driveCont.getRawAxis(5);
-		double rightLimit = 0.2;
-		double rightLimitedJoystick = 0;
+		rightJoystick = OI.driveCont.getRawAxis(5);
+
 		rightChange = rightJoystick - rightLimitedJoystick;
 		if (rightChange > rightLimit && rightJoystick > 0) {
 			rightChange = rightLimit;
@@ -56,6 +60,7 @@ public class Tankdrive extends Command {
 			}
 		}
 		rightLimitedJoystick += rightChange;
+		
 		if (Math.abs(OI.driveCont.getRawAxis(1)) <= Global.DEAD_ZONE && Math.abs(OI.driveCont.getRawAxis(5)) <= Global.DEAD_ZONE) {
 			Drivetrain.setSpeed(ControlMode.PercentOutput, 0, 0);
 		} else if (Math.abs(OI.driveCont.getRawAxis(1)) <= Global.DEAD_ZONE && Math.abs(OI.driveCont.getRawAxis(5)) > Global.DEAD_ZONE) {
