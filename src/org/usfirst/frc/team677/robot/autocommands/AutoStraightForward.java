@@ -29,7 +29,7 @@ public class AutoStraightForward extends Command {
     public AutoStraightForward(double ticks) {
     	requires(Robot.drivetrain);
     	setpoint = ticks; //When calling this method, ticks should be one of the Global constants
-    	distPID = new PIDCalculator(SmartDashboard.getNumber("Drivetrain P", Global.DRIVETRAIN_P), Global.DRIVETRAIN_I, Global.DRIVETRAIN_D, Global.DRIVETRAIN_IZONE); //TODO: Tune this
+    	distPID = new PIDCalculator(Global.DRIVETRAIN_P, Global.DRIVETRAIN_I, Global.DRIVETRAIN_D, Global.DRIVETRAIN_IZONE); //TODO: Tune this
     	anglePID = new PIDCalculator(Global.ANGLE_P,Global.ANGLE_I,Global.ANGLE_D,Global.ANGLE_IZONE);
     }
 
@@ -51,7 +51,7 @@ public class AutoStraightForward extends Command {
     }
 
     protected boolean isFinished() {
-        return Drivetrain.getRightError() <= Math.abs(Global.ENCODER_TOLERANCE);
+        return Math.abs(rightError) <= Global.ENCODER_TOLERANCE;
         //Drivetrain.getLeftError() <= Math.abs(Global.ENCODER_TOLERANCE) &&
     }
 
