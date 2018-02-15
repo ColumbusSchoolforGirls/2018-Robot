@@ -27,16 +27,47 @@ public class Tankdrive extends Command {
 	}
 
 	protected void execute() {
+		
+		//Rate limit filters on both sides
+		double leftChange = 0.2;
+		double leftJoystick = OI.driveCont.getRawAxis(1);
+		double leftLimit = 0.2;
+		double leftLimitedJoystick = 0;
+		leftChange = leftJoystick - leftLimitedJoystick;
+		if (leftChange > leftLimit && leftJoystick > 0) {
+			leftChange = leftLimit;
+		} else {
+			if (leftChange < -leftLimit && leftJoystick < 0){
+			 leftChange = -leftLimit;
+			}
+		}
+		leftLimitedJoystick += leftChange;
+		
+		double rightChange = 0.2;
+		double rightJoystick = OI.driveCont.getRawAxis(5);
+		double rightLimit = 0.2;
+		double rightLimitedJoystick = 0;
+		rightChange = rightJoystick - rightLimitedJoystick;
+		if (rightChange > rightLimit && rightJoystick > 0) {
+			rightChange = rightLimit;
+		} else {
+			if (rightChange < -rightLimit && rightJoystick < 0) {
+				rightChange = -rightLimit;
+			}
+		}
+		rightLimitedJoystick += rightChange;
 		if (Math.abs(OI.driveCont.getRawAxis(1)) <= Global.DEAD_ZONE && Math.abs(OI.driveCont.getRawAxis(5)) <= Global.DEAD_ZONE) {
 			Drivetrain.setSpeed(ControlMode.PercentOutput, 0, 0);
 		} else if (Math.abs(OI.driveCont.getRawAxis(1)) <= Global.DEAD_ZONE && Math.abs(OI.driveCont.getRawAxis(5)) > Global.DEAD_ZONE) {
-			Drivetrain.setSpeed(ControlMode.PercentOutput, 0, OI.driveCont.getRawAxis(5)*.5);
+			Drivetrain.setSpeed(ControlMode.PercentOutput, 0, rightLimitedJoystick);
 		} else if (Math.abs(OI.driveCont.getRawAxis(1)) > Global.DEAD_ZONE && Math.abs(OI.driveCont.getRawAxis(5)) <= Global.DEAD_ZONE){
-			Drivetrain.setSpeed(ControlMode.PercentOutput, OI.driveCont.getRawAxis(1)*.5, 0);
+			Drivetrain.setSpeed(ControlMode.PercentOutput, leftLimitedJoystick, 0);
 		} else {
-			Drivetrain.setSpeed(ControlMode.PercentOutput, OI.driveCont.getRawAxis(1)*.5, OI.driveCont.getRawAxis(5)*.5);
+			Drivetrain.setSpeed(ControlMode.PercentOutput, leftLimitedJoystick, rightLimitedJoystick);
 		}
+		
 	}
+	
 
 	protected boolean isFinished() {
 		return false;
