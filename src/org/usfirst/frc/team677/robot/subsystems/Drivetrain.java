@@ -41,6 +41,7 @@ public class Drivetrain extends Subsystem {
 
 	public static void resetEncoders() {
 		left_front.setSelectedSensorPosition(0, 0, 0);
+		right_front.setSelectedSensorPosition(0, 0, 0);
 	}
 	
 	public static void setPID(double prop, double integral, double deriv) {

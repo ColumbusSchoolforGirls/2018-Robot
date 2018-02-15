@@ -29,7 +29,7 @@ public class Tankdrive extends Command {
 	protected void execute() {
 		
 		//Rate limit filters on both sides
-		double leftChange = 0.2;
+		double leftChange;
 		double leftJoystick = OI.driveCont.getRawAxis(1);
 		double leftLimit = 0.2;
 		double leftLimitedJoystick = 0;
@@ -43,7 +43,7 @@ public class Tankdrive extends Command {
 		}
 		leftLimitedJoystick += leftChange;
 		
-		double rightChange = 0.2;
+		double rightChange;
 		double rightJoystick = OI.driveCont.getRawAxis(5);
 		double rightLimit = 0.2;
 		double rightLimitedJoystick = 0;
