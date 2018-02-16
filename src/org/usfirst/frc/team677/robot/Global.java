@@ -18,11 +18,11 @@ public class Global {
 	public static final double DEAD_ZONE = 0.2;
 	//PID control constants
 	//TODO: Tune these values
-	public static double DRIVETRAIN_P = .0003;
+	public static double DRIVETRAIN_P = .00000003;
 	public static double DRIVETRAIN_I = 0;
 	public static double DRIVETRAIN_D = 0;
 	public static double DRIVETRAIN_IZONE = 0;
-	public static double ANGLE_P = 0;
+	public static double ANGLE_P = 0.0000001;
 	public static double ANGLE_I = 0;
 	public static double ANGLE_D = 0;
 	public static double ANGLE_IZONE = 0;
@@ -49,5 +49,8 @@ public class Global {
 	public static double AUTO_TURN_LEFT = -4053; //Tuned! This is for 90 degrees.
 	
 	//Miscellaneous
-	public static final int ENCODER_TOLERANCE = 25; //TODO: Tune this
+	public static final int DRIVE_DISTANCE_TOLERANCE = 1000; // Ticks
+	public static final int ELEVATOR_TOLERANCE = 100; // Ticks
+	public static final int DRIVE_ANGLE_TOLERANCE = 3; // Degrees
+
 }

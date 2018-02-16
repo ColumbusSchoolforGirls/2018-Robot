@@ -22,21 +22,22 @@ public class Drivetrain extends Subsystem {
 	public Drivetrain() {
 		left_front.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
 		right_front.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
+		resetEncoders();
 
 		left_front.setNeutralMode(NeutralMode.Brake);
 		right_front.setNeutralMode(NeutralMode.Brake);
 		left_back.setNeutralMode(NeutralMode.Brake);
 		right_back.setNeutralMode(NeutralMode.Brake);
 		
-		imu.calibrate();
 		imu.reset();
+		imu.calibrate();
 	}
 
 	public static void setSpeed(ControlMode mode, double leftSpeed, double rightSpeed) {	
 		left_front.set(mode, -leftSpeed);
 		right_front.set(mode, rightSpeed);
-		left_back.set(ControlMode.Follower, -leftSpeed); //TODO: Is this supposed to be negative?
-		right_back.set(ControlMode.Follower, rightSpeed);
+		left_back.set(mode, -leftSpeed); //TODO: Check if mode can be ControlMode.Follower or leave as mode
+		right_back.set(mode, rightSpeed);
 	}
 
 	public static void resetEncoders() {
@@ -65,16 +66,16 @@ public class Drivetrain extends Subsystem {
 		return right_front.getSelectedSensorPosition(0);
 	}
 	
-	public static double getLeftError() {
-		return (left_front.getClosedLoopError(0));
-	}
-	
-	public static double getRightError() {
-		return (right_front.getClosedLoopError(0));
-	}
+//	public static double getLeftError() {
+//		return (left_front.getClosedLoopError(0));
+//	}
+//	
+//	public static double getRightError() {
+//		return (right_front.getClosedLoopError(0));
+//	}
 	
 	public static double getFacingAngle() {
-		return imu.getAngle();
+		return imu.getAngleZ(); // TODO: Figure out correct direction (X, Y, or Z)
 	}
 
 	public void update() {
@@ -82,11 +83,10 @@ public class Drivetrain extends Subsystem {
 		SmartDashboard.putNumber("Right Encoder", getRightEncoder());
 //		SmartDashboard.putNumber("Left Error", getLeftError());
 //		SmartDashboard.putNumber("Right Error", getRightError());
-		SmartDashboard.putNumber("Facing Angle", imu.getAngle());
+		SmartDashboard.putNumber("Facing Angle", getFacingAngle());
 	}
 
 	public void initDefaultCommand() {
-		// Set the default command for a subsystem here.
 		setDefaultCommand(new Tankdrive());
 	}
 	

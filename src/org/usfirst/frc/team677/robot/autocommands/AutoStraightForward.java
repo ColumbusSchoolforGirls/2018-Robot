@@ -29,8 +29,8 @@ public class AutoStraightForward extends Command {
     public AutoStraightForward(double ticks) {
     	requires(Robot.drivetrain);
     	setpoint = ticks; //When calling this method, ticks should be one of the Global constants
-    	distPID = new PIDCalculator(Global.DRIVETRAIN_P, Global.DRIVETRAIN_I, Global.DRIVETRAIN_D, Global.DRIVETRAIN_IZONE); //TODO: Tune this
-    	anglePID = new PIDCalculator(Global.ANGLE_P,Global.ANGLE_I,Global.ANGLE_D,Global.ANGLE_IZONE);
+    	distPID = new PIDCalculator(Global.DRIVETRAIN_P, Global.DRIVETRAIN_I, Global.DRIVETRAIN_D); //TODO: Tune this
+    	anglePID = new PIDCalculator(Global.ANGLE_P, Global.ANGLE_I, Global.ANGLE_D);
     }
 
     protected void initialize() {
@@ -44,15 +44,17 @@ public class AutoStraightForward extends Command {
     	angleError = angle - Drivetrain.getFacingAngle();
     	
     	angleOutput = anglePID.getOutput(angleError);
-    	leftOutput = distPID.getOutput(leftError) - angleOutput;
-    	rightOutput = distPID.getOutput(rightError) + angleOutput;
+    	leftOutput = distPID.getOutput(leftError);
+    	rightOutput = distPID.getOutput(rightError);
     	
-    	Drivetrain.setSpeed(ControlMode.PercentOutput, leftOutput, rightOutput);
+    	SmartDashboard.putNumber("Left Error", leftError);    	
+    	SmartDashboard.putNumber("Right Error", rightError);
+    	
+    	Drivetrain.setSpeed(ControlMode.PercentOutput, leftOutput - angleOutput, -rightOutput + angleOutput);
     }
 
     protected boolean isFinished() {
-        return Math.abs(rightError) <= Global.ENCODER_TOLERANCE;
-        //Drivetrain.getLeftError() <= Math.abs(Global.ENCODER_TOLERANCE) &&
+        return Math.abs(rightError) <= Global.DRIVE_DISTANCE_TOLERANCE;
     }
 
     protected void end() {

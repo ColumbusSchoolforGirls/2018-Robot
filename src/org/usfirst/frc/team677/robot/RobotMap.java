@@ -15,9 +15,9 @@ package org.usfirst.frc.team677.robot;
  */
 public class RobotMap {
 	// Solenoid ports
-	public static final int CLAW_SOL_A_PORT = 4;
-	public static final int CLAW_SOL_B_PORT = 5;
-	public static final int RAMPRELEASE_SOL_A_PORT = 0; //TODO: Replace this with the actual value
+	public static final int CLAW_SOL_A_PORT = 0;
+	public static final int CLAW_SOL_B_PORT = 7;
+	public static final int RAMPRELEASE_SOL_A_PORT = 4; //TODO: Replace this with the actual value
 	public static final int RAMPRELEASE_SOL_B_PORT = 1;
 	public static final int RAMPLIFT_SOL_A_PORT = 2;
 	public static final int RAMPLIFT_SOL_B_PORT = 3; //TODO: Replace this with the actual value

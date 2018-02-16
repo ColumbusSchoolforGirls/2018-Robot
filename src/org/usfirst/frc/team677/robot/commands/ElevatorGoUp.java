@@ -35,7 +35,7 @@ public class ElevatorGoUp extends Command {
     }
 
     protected boolean isFinished() {
-        return (error <= Global.ENCODER_TOLERANCE);
+        return error <= Global.ELEVATOR_TOLERANCE;
     }
 
     protected void end() {

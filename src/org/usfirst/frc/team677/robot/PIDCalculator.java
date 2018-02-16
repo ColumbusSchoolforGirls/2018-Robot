@@ -16,6 +16,10 @@ public class PIDCalculator {
 	double lastTime = 0;
 	double currentPosition = 0;
 	
+	public PIDCalculator(double propValue, double integralValue, double derivValue) {
+		this(propValue, integralValue, derivValue, 0);
+	}
+	
 	public PIDCalculator (double propValue, double integralValue, double derivValue, double IZone) {
 		propConstant = propValue;
 		integralConstant = integralValue;
