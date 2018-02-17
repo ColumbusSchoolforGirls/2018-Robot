@@ -64,6 +64,7 @@ public class Tankdrive extends Command {
 //		
 //		SmartDashboard.putNumber("Left Limited Joystick", leftLimitedJoystick);
 //		SmartDashboard.putNumber("Right Limited Joystick", rightLimitedJoystick);
+		// MAKE sure to change to left limited Joystick if ramp rate is used
 		
 		if (Math.abs(OI.driveCont.getRawAxis(1)) <= Global.DEAD_ZONE && Math.abs(OI.driveCont.getRawAxis(5)) <= Global.DEAD_ZONE) {
 			Drivetrain.setSpeed(ControlMode.PercentOutput, 0, 0);
@@ -81,9 +82,10 @@ public class Tankdrive extends Command {
 	}
 
 	protected void end() {
-
+		Drivetrain.setSpeed(ControlMode.PercentOutput, 0, 0);
 	}
 
 	protected void interrupted() {
+		end();
 	}
 }

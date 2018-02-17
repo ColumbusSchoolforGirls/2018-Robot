@@ -8,29 +8,32 @@ import org.usfirst.frc.team677.robot.subsystems.Drivetrain;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
 public class Turn extends Command {
 
-	double angleError = 0;
-	double angleOutput = 0;
-	PIDCalculator anglePID = new PIDCalculator(Global.ANGLE_P, Global.ANGLE_I, Global.ANGLE_D, Global.ANGLE_IZONE);
+	private double angle;
+	private double angleError;
+	private PIDCalculator anglePID;
 
-	public double setpoint;
-
-	public Turn(double ticks) {
+	public Turn(double angle) {
 		requires(Robot.drivetrain);
-		setpoint = ticks;
+		this.angle = angle;
+		anglePID = new PIDCalculator(Global.ANGLE_P, Global.ANGLE_I, Global.ANGLE_D, Global.ANGLE_IZONE);
 	}
 
 	protected void initialize() {
 	}
 
 	protected void execute() {
-		angleError = setpoint - Drivetrain.getFacingAngle();
-		angleOutput = anglePID.getOutput(angleError);
+		angleError = angle - Drivetrain.getFacingAngle();
+		double angleOutput = anglePID.getOutput(angleError);
+		
+		SmartDashboard.putNumber("Angle Output", angleOutput);
+		SmartDashboard.putNumber("Angle Error", angleError);
 
 		Drivetrain.setSpeed(ControlMode.PercentOutput, -angleOutput, angleOutput); // TODO: Figure out which is positive
 																					// and which is negative

@@ -18,14 +18,14 @@ public class Global {
 	public static final double DEAD_ZONE = 0.2;
 	//PID control constants
 	//TODO: Tune these values
-	public static double DRIVETRAIN_P = .00000003;
-	public static double DRIVETRAIN_I = 0;
-	public static double DRIVETRAIN_D = 0;
-	public static double DRIVETRAIN_IZONE = 0;
-	public static double ANGLE_P = 0.0000001;
-	public static double ANGLE_I = 0;
-	public static double ANGLE_D = 0;
-	public static double ANGLE_IZONE = 0;
+	public static final double DRIVETRAIN_P = 0;
+	public static final double DRIVETRAIN_I = 0;
+	public static final double DRIVETRAIN_D = 0;
+	public static final double DRIVETRAIN_IZONE = 0;
+	public static final double ANGLE_P = 0;
+	public static final double ANGLE_I = 0;
+	public static final double ANGLE_D = 0;
+	public static final double ANGLE_IZONE = 0;
 	public static double ELEVATOR_P = 0;
 	public static double ELEVATOR_I = 0;
 	public static double ELEVATOR_D = 0;

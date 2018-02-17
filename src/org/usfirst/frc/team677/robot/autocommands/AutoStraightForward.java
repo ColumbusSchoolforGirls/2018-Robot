@@ -14,23 +14,19 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 public class AutoStraightForward extends Command {
-	double leftOutput = 0;
-	double rightOutput = 0;
-	double leftError = 0;
-	double rightError = 0;
-	double angle = 0;
-	double angleError = 0;
-	double angleOutput = 0;
+	private double leftError;
+	private double rightError;
+	private double angle;
+	private double setpoint;
 	private PIDCalculator distPID;
 	private PIDCalculator anglePID;
-	
-	public double setpoint;
 
     public AutoStraightForward(double ticks) {
     	requires(Robot.drivetrain);
     	setpoint = ticks; //When calling this method, ticks should be one of the Global constants
     	distPID = new PIDCalculator(Global.DRIVETRAIN_P, Global.DRIVETRAIN_I, Global.DRIVETRAIN_D); //TODO: Tune this
     	anglePID = new PIDCalculator(Global.ANGLE_P, Global.ANGLE_I, Global.ANGLE_D);
+    	Drivetrain.setSpeed(ControlMode.PercentOutput, 0, 0);
     }
 
     protected void initialize() {
@@ -41,11 +37,11 @@ public class AutoStraightForward extends Command {
     protected void execute() {
     	leftError = setpoint - Drivetrain.getLeftEncoder();
     	rightError = setpoint - Drivetrain.getRightEncoder();
-    	angleError = angle - Drivetrain.getFacingAngle();
+    	double angleError = angle - Drivetrain.getFacingAngle();
     	
-    	angleOutput = anglePID.getOutput(angleError);
-    	leftOutput = distPID.getOutput(leftError);
-    	rightOutput = distPID.getOutput(rightError);
+    	double leftOutput = distPID.getOutput(leftError);
+    	double rightOutput = distPID.getOutput(rightError);
+    	double angleOutput = anglePID.getOutput(angleError);
     	
     	SmartDashboard.putNumber("Left Error", leftError);    	
     	SmartDashboard.putNumber("Right Error", rightError);
@@ -59,8 +55,11 @@ public class AutoStraightForward extends Command {
 
     protected void end() {
     	Drivetrain.setSpeed(ControlMode.PercentOutput, 0, 0);
+//    	Drivetrain.resetEncoders();    	
     }
 
     protected void interrupted() {
     }
+   
 }
+

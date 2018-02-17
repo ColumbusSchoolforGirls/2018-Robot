@@ -3,18 +3,14 @@ package org.usfirst.frc.team677.robot;
 import edu.wpi.first.wpilibj.Timer;
 
 public class PIDCalculator {
-	double propConstant = 0;
-	double integralConstant = 0;
-	double derivConstant = 0;
-	double IZone = 0;
-	double prop = 0;
-	double integral = 0;
-	double deriv = 0;
-	double output = 0;
-	double lastError = 0;
-	double runningSum = 0;
-	double lastTime = 0;
-	double currentPosition = 0;
+	private final double propConstant;
+	private final double integralConstant;
+	private final double derivConstant;
+	private double runningSum = 0;
+	private final double IZone;
+	private double lastError;
+	private double lastTime;
+	private double output;
 	
 	public PIDCalculator(double propValue, double integralValue, double derivValue) {
 		this(propValue, integralValue, derivValue, 0);
@@ -30,16 +26,18 @@ public class PIDCalculator {
 	}
 	
 	public double getOutput(double error) {
-		prop = propConstant * error;
+		double prop = propConstant * error;
+		double integral;
+		double deriv;
 		
-		if (error <= Math.abs(IZone)) {
-			runningSum = 0;
-		} else {
+		if (Math.abs(error) <= IZone) {
 			runningSum = runningSum + error * (Timer.getFPGATimestamp() - lastTime);
+		} else {
+			runningSum = 0;
 		}
 		integral = integralConstant * runningSum;
 		
-		deriv = derivConstant + (error - lastError)/(Timer.getFPGATimestamp() - lastTime);
+		deriv = derivConstant * (error - lastError)/(Timer.getFPGATimestamp() - lastTime);
 		
 		lastTime = Timer.getFPGATimestamp();
 		lastError = error;

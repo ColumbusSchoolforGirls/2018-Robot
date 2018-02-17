@@ -23,7 +23,6 @@ public class ElevatorGoUp extends Command {
     }
 
     protected void initialize() {
-    	Elevator.resetEncoder();
     	position = 0;
     }
 

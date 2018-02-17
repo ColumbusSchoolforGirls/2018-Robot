@@ -15,8 +15,8 @@ public class Arm extends Subsystem {
 	public static DoubleSolenoid claw = new DoubleSolenoid(RobotMap.CLAW_SOL_A_PORT, RobotMap.CLAW_SOL_B_PORT);
 	public static Compressor compressor = new Compressor();
 
-	public static void grab(boolean retract) {
-		if (retract) {
+	public static void grab(boolean open) {
+		if (open) {
 			claw.set(Value.kForward);
 		} else {
 			claw.set(Value.kReverse);
