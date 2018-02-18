@@ -75,7 +75,7 @@ public class Drivetrain extends Subsystem {
 //	}
 	
 	public static double getFacingAngle() {
-		return imu.getAngleZ(); // TODO: Figure out correct direction (X, Y, or Z)
+		return imu.getAngleZ();
 	}
 
 	public void update() {
@@ -89,5 +89,4 @@ public class Drivetrain extends Subsystem {
 	public void initDefaultCommand() {
 		setDefaultCommand(new Tankdrive());
 	}
-	
 }

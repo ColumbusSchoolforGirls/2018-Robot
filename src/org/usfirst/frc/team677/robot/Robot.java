@@ -140,7 +140,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void testPeriodic() {
 	}
-	public void update () {
+	public void update() {
 		drivetrain.update();
 		Scheduler.getInstance().run();
 	}

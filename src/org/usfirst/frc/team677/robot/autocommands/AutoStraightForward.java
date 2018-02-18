@@ -25,7 +25,7 @@ public class AutoStraightForward extends Command {
     	requires(Robot.drivetrain);
     	setpoint = ticks; //When calling this method, ticks should be one of the Global constants
     	distPID = new PIDCalculator(Global.DRIVETRAIN_P, Global.DRIVETRAIN_I, Global.DRIVETRAIN_D); //TODO: Tune this
-    	anglePID = new PIDCalculator(Global.ANGLE_P, Global.ANGLE_I, Global.ANGLE_D);
+    	anglePID = new PIDCalculator(Global.DRIVESTRAIGHT_ANGLE_P, Global.DRIVESTRAIGHT_ANGLE_I, Global.DRIVESTRAIGHT_ANGLE_D);
     	Drivetrain.setSpeed(ControlMode.PercentOutput, 0, 0);
     }
 
@@ -46,7 +46,7 @@ public class AutoStraightForward extends Command {
     	SmartDashboard.putNumber("Left Error", leftError);    	
     	SmartDashboard.putNumber("Right Error", rightError);
     	
-    	Drivetrain.setSpeed(ControlMode.PercentOutput, leftOutput - angleOutput, -rightOutput + angleOutput);
+    	Drivetrain.setSpeed(ControlMode.PercentOutput, -leftOutput - angleOutput, -rightOutput + angleOutput);
     }
 
     protected boolean isFinished() {

@@ -7,8 +7,6 @@
 
 package org.usfirst.frc.team677.robot;
 
-
-import org.usfirst.frc.team677.robot.commands.ElevatorGoUp;
 import org.usfirst.frc.team677.robot.commands.Grab;
 import org.usfirst.frc.team677.robot.commands.RampRelease;
 

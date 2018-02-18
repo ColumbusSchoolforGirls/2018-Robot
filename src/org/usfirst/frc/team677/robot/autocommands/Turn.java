@@ -22,7 +22,7 @@ public class Turn extends Command {
 	public Turn(double angle) {
 		requires(Robot.drivetrain);
 		this.angle = angle;
-		anglePID = new PIDCalculator(Global.ANGLE_P, Global.ANGLE_I, Global.ANGLE_D, Global.ANGLE_IZONE);
+		anglePID = new PIDCalculator(Global.TURNANGLE_P, Global.TURNANGLE_I, Global.TURNANGLE_D, Global.TURNANGLE_IZONE);
 	}
 
 	protected void initialize() {
