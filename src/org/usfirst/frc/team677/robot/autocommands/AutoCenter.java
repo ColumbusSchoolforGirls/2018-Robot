@@ -9,31 +9,28 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class AutoCenter extends Command {
-
+	String gameData;
 	public AutoCenter() {
 		requires(Robot.drivetrain);
 	}
 
 	protected void initialize() {
-		String gameData;
-		gameData = DriverStation.getInstance().getGameSpecificMessage();
-		if (gameData.length() > 0) {
-			if (gameData.charAt(0) == 'L') {
-				new LCenterPosition();
-			} else {
-				new RCenterPosition();
-			}
-		}
 	}
 
 	protected void execute() {
+		gameData = DriverStation.getInstance().getGameSpecificMessage();
 	}
 
 	protected boolean isFinished() {
-		return false;
+		return gameData.length() > 0;
 	}
 
 	protected void end() {
+		if (gameData.charAt(0) == 'L') {
+			new LCenterPosition();
+		} else {
+			new RCenterPosition();
+		}
 	}
 
 	protected void interrupted() {

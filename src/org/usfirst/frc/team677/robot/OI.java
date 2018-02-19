@@ -8,6 +8,7 @@
 package org.usfirst.frc.team677.robot;
 
 import org.usfirst.frc.team677.robot.commands.Grab;
+import org.usfirst.frc.team677.robot.commands.RampLift;
 import org.usfirst.frc.team677.robot.commands.RampRelease;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -43,6 +44,9 @@ public class OI {
 	public OI() {
 		auxButtonA.whileHeld(new Grab(false));
 		auxButtonA.whenReleased(new Grab(true));
-		buttonA.whenPressed(new RampRelease());
+		buttonA.whileHeld(new RampLift(false));
+		buttonA.whenReleased(new RampLift(true));
+		buttonB.whileHeld(new RampRelease(false));
+		buttonB.whenReleased(new RampRelease(true));
 	}
 }

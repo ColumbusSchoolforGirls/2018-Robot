@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class RampRelease extends Command {
 
-    public RampRelease() {
+    public RampRelease(boolean b) {
     	requires(Robot.ramp);
     }
 

@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class RampLift extends Command {
 
-    public RampLift() {
+    public RampLift(boolean b) {
     	requires(Robot.ramp);
     }
 

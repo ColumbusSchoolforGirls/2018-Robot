@@ -10,31 +10,28 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class AutoRight extends Command {
-
+	String gameData;
     public AutoRight() {
     	requires(Robot.drivetrain);
     }
 
     protected void initialize() {
-    	String gameData;
-    	gameData = DriverStation.getInstance().getGameSpecificMessage();
-    			if(gameData.length()>0){
-    				if(gameData.charAt(0) == 'L') {
-    					new LRightPosition();
-    				} else {
-    					new RRightPosition();
-    				}
-    			}
     }
 
     protected void execute() {
+    	gameData = DriverStation.getInstance().getGameSpecificMessage();
     }
 
     protected boolean isFinished() {
-        return false;
+        return gameData.length() > 0;
     }
 
     protected void end() {
+    	if(gameData.charAt(0) == 'L') {
+			new LRightPosition();
+		} else {
+			new RRightPosition();
+		}
     }
 
     protected void interrupted() {
