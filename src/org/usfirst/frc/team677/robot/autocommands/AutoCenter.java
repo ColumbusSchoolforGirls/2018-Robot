@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class AutoCenter extends Command {
 	String gameData;
+	
 	public AutoCenter() {
 		requires(Robot.drivetrain);
 	}

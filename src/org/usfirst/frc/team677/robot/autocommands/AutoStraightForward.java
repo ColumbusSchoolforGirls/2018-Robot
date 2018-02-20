@@ -50,7 +50,7 @@ public class AutoStraightForward extends Command {
     }
 
     protected boolean isFinished() {
-        return Math.abs(rightError) <= Global.DRIVE_DISTANCE_TOLERANCE;
+        return Math.abs(leftError) <= Global.DRIVE_DISTANCE_TOLERANCE;
     }
 
     protected void end() {

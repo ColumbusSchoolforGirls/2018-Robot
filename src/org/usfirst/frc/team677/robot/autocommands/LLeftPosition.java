@@ -28,10 +28,15 @@ public class LLeftPosition extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
+    	
     	addSequential(new ResetGyro());
-    	addSequential(new AutoStraightForward(Global.AUTO_SIDE_DISTANCE_ONE));
-    	addSequential(new Turn(Global.AUTO_TURN_RIGHT));
-    	addSequential(new AutoStraightForward(Global.AUTO_SIDE_DISTANCE_TWO));
-    	addSequential(new Grab(true)); //TODO: Make sure this is the right direction
+    	addSequential(new AutoStraightForward(30000));
+    	addSequential(new Turn(90));
+    	
+//    	addSequential(new ResetGyro());
+//    	addSequential(new AutoStraightForward(Global.AUTO_SIDE_DISTANCE_ONE));
+//    	addSequential(new Turn(Global.AUTO_TURN_RIGHT));
+//    	addSequential(new AutoStraightForward(Global.AUTO_SIDE_DISTANCE_TWO));
+//    	addSequential(new Grab(true)); //TODO: Make sure this is the right direction
     }
 }
