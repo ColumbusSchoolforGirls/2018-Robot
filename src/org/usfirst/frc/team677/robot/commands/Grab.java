@@ -11,10 +11,12 @@ import org.usfirst.frc.team677.robot.subsystems.Elevator;
 public class Grab extends Command {
 	
 	boolean open;
+	boolean auto;
 
-    public Grab(boolean clawDirection) {
+    public Grab(boolean clawDirection, boolean auto) {
     	requires(Robot.arm);
     	open = clawDirection;
+    	this.auto = auto;
     }
 
     protected void initialize() {
@@ -25,7 +27,7 @@ public class Grab extends Command {
     }
 
     protected boolean isFinished() {
-        return false;
+        return auto;
     }
 
     protected void end() {

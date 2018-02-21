@@ -8,7 +8,7 @@ import org.usfirst.frc.team677.robot.subsystems.Elevator;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * this class is for encoders
  */
 public class ElevatorGoUp extends Command {
 	double error;

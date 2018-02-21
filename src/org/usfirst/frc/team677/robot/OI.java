@@ -42,8 +42,8 @@ public class OI {
 
 	// Default constructor
 	public OI() {
-		auxButtonA.whileHeld(new Grab(false));
-		auxButtonA.whenReleased(new Grab(true));
+		auxButtonA.whileHeld(new Grab(false, false));
+		auxButtonA.whenReleased(new Grab(true, false));
 		buttonA.whileHeld(new RampLift(false));
 		buttonA.whenReleased(new RampLift(true));
 		buttonB.whileHeld(new RampRelease(false));

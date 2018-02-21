@@ -32,7 +32,7 @@ public class Elevator extends Subsystem {
 //	}
 	
     public void initDefaultCommand() {
-    	setDefaultCommand(new ElevatorManual());
+    	setDefaultCommand(new ElevatorManual(false, 0));
     }
 }
 
