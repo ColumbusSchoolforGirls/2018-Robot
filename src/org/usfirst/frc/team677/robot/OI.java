@@ -44,9 +44,7 @@ public class OI {
 	public OI() {
 		auxButtonA.whileHeld(new Grab(false, false));
 		auxButtonA.whenReleased(new Grab(true, false));
-		buttonA.whileHeld(new RampLift(false));
-		buttonA.whenReleased(new RampLift(true));
-		buttonB.whileHeld(new RampRelease(false));
-		buttonB.whenReleased(new RampRelease(true));
+		buttonA.whenPressed(new RampLift(false));
+		buttonB.whenPressed(new RampRelease(false));
 	}
 }

@@ -9,16 +9,19 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class RampLift extends Command {
+	
+	boolean lift;
 
     public RampLift(boolean b) {
     	requires(Robot.ramp);
+    	lift = b;
     }
 
     protected void initialize() {
-    	Ramp.lift(true); //TODO: Add a control for this
     }
 
     protected void execute() {
+    	Ramp.lift(lift);
     }
 
     protected boolean isFinished() {

@@ -9,16 +9,19 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class RampRelease extends Command {
+	
+	boolean release;
 
     public RampRelease(boolean b) {
     	requires(Robot.ramp);
+    	release = b;
     }
 
     protected void initialize() {
-    	Ramp.release(true); //TODO: Add a control for this
     }
 
     protected void execute() {
+    	Ramp.release(release);
     }
 
     protected boolean isFinished() {

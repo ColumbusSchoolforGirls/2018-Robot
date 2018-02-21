@@ -19,7 +19,7 @@ public class Grab extends Command {
     	this.auto = auto;
     }
 
-    protected void initialize() {
+	protected void initialize() {
     }
 
     protected void execute() {
