@@ -34,7 +34,7 @@ public class LCenterPosition extends CommandGroup {
     	addSequential (new AutoStraightForward (Global.AUTO_FRONT_DISTANCE_TWO));
     	addSequential (new Turn (Global.AUTO_TURN_RIGHT));
     	addSequential (new AutoStraightForward (Global.AUTO_FRONT_DISTANCE_THREE));
-    	addSequential (new Grab(true)); //TODO: Make sure this is the right direction
+    	//addSequential (new Grab(true)); //TODO: Make sure this is the right direction
     	
     }
 }
