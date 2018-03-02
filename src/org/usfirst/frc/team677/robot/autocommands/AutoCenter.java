@@ -28,9 +28,9 @@ public class AutoCenter extends Command {
 
 	protected void end() {
 		if (gameData.charAt(0) == 'L') {
-			new LCenterPosition();
+			new LCenterPosition().start();
 		} else {
-			new RCenterPosition();
+			new RCenterPosition().start();
 		}
 	}
 

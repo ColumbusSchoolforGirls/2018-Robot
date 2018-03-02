@@ -1,6 +1,7 @@
 package org.usfirst.frc.team677.robot.autocommands;
 
 import org.usfirst.frc.team677.robot.Global;
+import org.usfirst.frc.team677.robot.commands.ElevatorManual;
 import org.usfirst.frc.team677.robot.commands.Grab;
 import org.usfirst.frc.team677.robot.commands.ResetGyro;
 
@@ -28,12 +29,13 @@ public class LCenterPosition extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	addSequential (new ResetGyro());
-    	addSequential (new AutoStraightForward (Global.AUTO_FRONT_DISTANCE_ONE));
-    	addSequential (new Turn (Global.AUTO_TURN_LEFT));
-    	addSequential (new AutoStraightForward (Global.AUTO_FRONT_DISTANCE_TWO));
-    	addSequential (new Turn (Global.AUTO_TURN_RIGHT));
-    	addSequential (new AutoStraightForward (Global.AUTO_FRONT_DISTANCE_THREE));
+    	addSequential(new ResetGyro());
+    	addSequential(new Grab(false, true));
+    	addSequential(new Wait(.5));
+    	//addParallel(new ElevatorManual (true, .5));
+    	addSequential(new AutoStraightForward(10000));
+    	addSequential(new Turn(-90, 1));
+    	addSequential(new Grab(true, true));
 //    	addSequential (new Grab(true)); //TODO: Make sure this is the right direction
     	
     }

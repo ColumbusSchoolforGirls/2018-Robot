@@ -1,6 +1,7 @@
 package org.usfirst.frc.team677.robot.autocommands;
 
 import org.usfirst.frc.team677.robot.Global;
+import org.usfirst.frc.team677.robot.commands.ElevatorManual;
 import org.usfirst.frc.team677.robot.commands.Grab;
 import org.usfirst.frc.team677.robot.commands.ResetGyro;
 
@@ -13,11 +14,14 @@ public class RLeftPosition extends CommandGroup {
 
     public RLeftPosition() {
     	addSequential(new ResetGyro());
-    	addSequential(new AutoStraightForward(Global.AUTO_BACK_DISTANCE_ONE));
-    	addSequential(new Turn(Global.AUTO_TURN_RIGHT));
-    	addSequential(new AutoStraightForward(Global.AUTO_BACK_DISTANCE_TWO));
-    	addSequential(new Turn(Global.AUTO_TURN_RIGHT));
-    	addSequential(new AutoStraightForward(Global.AUTO_BACK_DISTANCE_THREE));
-//    	addSequential(new Grab(true)); //TODO: Make sure this is the right direction
+    	addSequential(new Grab(false, true));
+    	addSequential(new Wait(.5));
+    	addParallel(new ElevatorManual (true, .6));
+    	addSequential(new AutoStraightForward(31500));
+//    	addSequential(new Turn(90), 1.5);
+//    	addSequential(new AutoStraightForward(5000));
+//    	addSequential(new Grab(true, true));
+//    	addSequential (new Wait(1.5));
+//    	addSequential(new AutoStraightForward(-5000));
     }
 }

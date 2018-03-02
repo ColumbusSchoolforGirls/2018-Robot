@@ -17,12 +17,14 @@ public class Turn extends Command {
 
 	private double angle;
 	private double angleError;
+	private double timeout;
 	private PIDCalculator anglePID;
 
-	public Turn(double angle) {
+	public Turn(double angle, double timeout) {
 		requires(Robot.drivetrain);
 		this.angle = angle;
 		anglePID = new PIDCalculator(Global.TURNANGLE_P, Global.TURNANGLE_I, Global.TURNANGLE_D, Global.TURNANGLE_IZONE);
+		this.timeout = timeout;
 	}
 
 	protected void initialize() {
@@ -40,7 +42,7 @@ public class Turn extends Command {
 	}
 
 	protected boolean isFinished() {
-		return Math.abs(angleError) <= Global.DRIVE_ANGLE_TOLERANCE;
+		return Math.abs(angleError) <= Global.DRIVE_ANGLE_TOLERANCE || isTimedOut();
 	}
 
 	protected void end() {

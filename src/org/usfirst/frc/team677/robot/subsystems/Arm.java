@@ -24,6 +24,6 @@ public class Arm extends Subsystem {
 	}
 	
 	public void initDefaultCommand() {
-		setDefaultCommand(new Grab(false, false));
+		//setDefaultCommand(new Grab(false, false));
 	}
 }

@@ -28,9 +28,9 @@ public class AutoLeft extends Command {
 
 	protected void end() {
 		if (gameData.charAt(0) == 'L') {
-			new LLeftPosition();
+			new LLeftPosition().start();
 		} else {
-			new RLeftPosition();
+			new RLeftPosition().start();
 		}
 	}
 

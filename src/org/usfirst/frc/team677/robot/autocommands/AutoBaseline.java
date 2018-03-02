@@ -12,6 +12,6 @@ public class AutoBaseline extends CommandGroup {
 
     public AutoBaseline() {
     	addSequential(new ResetGyro());
-    	addSequential(new AutoStraightForward(Global.AUTO_STRAIGHT_FORWARD_SETPOINT));
+    	addSequential(new AutoStraightForward(31500));
     }
 }

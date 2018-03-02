@@ -142,6 +142,7 @@ public class Robot extends TimedRobot {
 	}
 	public void update() {
 		drivetrain.update();
+		elevator.update();
 		Scheduler.getInstance().run();
 	}
 	

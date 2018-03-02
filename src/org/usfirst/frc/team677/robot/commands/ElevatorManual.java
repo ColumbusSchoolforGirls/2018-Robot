@@ -11,6 +11,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -39,14 +40,12 @@ public class ElevatorManual extends Command {
 	//			} else {
 	//				Elevator.drive(1); //TODO: Replace this with the correct speed to hold the elevator in place
 	//			}
-			} else if (OI.auxCont.getRawAxis(1) > Global.DEAD_ZONE){
-				Elevator.drive(.2 * -OI.auxCont.getRawAxis(1));
-//				Elevator.drive(.2 * -OI.auxCont.getRawAxis(1));
 			} else {
 				Elevator.drive(0);
 //				Elevator.drive(0);
 			}
 		}
+		
 	}
 
 	protected boolean isFinished() {
