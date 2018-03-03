@@ -24,6 +24,11 @@ public class Elevator extends Subsystem {
 	public Elevator() {	
 		pulley.setNeutralMode(NeutralMode.Brake);
 		pulleyEncoder.reset();
+		pulley.configPeakCurrentLimit(45, 10);
+		pulley.configPeakCurrentDuration(200, 10);
+		pulley.configContinuousCurrentLimit(40, 10);
+		pulley.enableCurrentLimit(false);
+		
 	}
 
 	public static void drive(double speed) {

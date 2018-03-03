@@ -25,7 +25,7 @@ public class Global {
 	public static final double DRIVESTRAIGHT_ANGLE_P = 0.04; // 0.04
 	public static final double DRIVESTRAIGHT_ANGLE_I = 0;
 	public static final double DRIVESTRAIGHT_ANGLE_D= 0;
-	public static final double TURNANGLE_P = 0.0051;
+	public static final double TURNANGLE_P = 0.0061;
 	public static final double TURNANGLE_I = 0.001;
 	public static final double TURNANGLE_D = 0;
 	public static final double TURNANGLE_IZONE = 10;
@@ -54,7 +54,7 @@ public class Global {
 	//Miscellaneous
 	public static final int DRIVE_DISTANCE_TOLERANCE = 1000; // Ticks
 	public static final int ELEVATOR_TOLERANCE = 100; // Ticks
-	public static final int DRIVE_ANGLE_TOLERANCE = 5; // Degrees
+	public static final int DRIVE_ANGLE_TOLERANCE = 10; // Degrees
 	//TODO: FIX ME
 
 }
