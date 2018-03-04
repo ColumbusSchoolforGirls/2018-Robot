@@ -53,8 +53,10 @@ public class ElevatorManual extends Command {
 	}
 
 	protected void end() {
+		Elevator.drive(0);
 	}
 
 	protected void interrupted() {
+		Elevator.drive(0);
 	}
 }

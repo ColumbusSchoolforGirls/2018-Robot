@@ -15,9 +15,7 @@ public class AutoTest extends CommandGroup {
     public AutoTest() {
     	addSequential(new ResetGyro());
     	addSequential(new Grab(false, true));
-    	addSequential(new Wait(1));
-    	addParallel(new ElevatorManual (true, .7), .75);
-    	addSequential(new AutoStraightForward(31500));
-    	addParallel(new AutoElevatorTime(), 8);
+    	addSequential(new Wait(.5));
+    	addSequential(new AutoElevatorTime());
     }
 }

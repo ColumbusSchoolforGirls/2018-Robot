@@ -16,9 +16,11 @@ public class RLeftPosition extends CommandGroup {
     	addSequential(new ResetGyro());
     	addSequential(new Grab(false, true));
     	addSequential(new Wait(.5));
-    	//addParallel(new ElevatorManual (true, .6));
-    	addSequential(new AutoStraightForward(31500));
-//    	addSequential(new Turn(90), 1.5);
+    	//addParallel(new ElevatorManual (true, .6)); -
+    	//addSequential(new AutoStraightForward(57000)); -
+    	addSequential (new AutoStraightForward(31500));
+    	//addSequential(new Turn(90, 1.5)); -
+    	//addSequential(new AutoStraightForward(60000)); -
 //    	addSequential(new AutoStraightForward(5000));
 //    	addSequential(new Grab(true, true));
 //    	addSequential (new Wait(1.5));

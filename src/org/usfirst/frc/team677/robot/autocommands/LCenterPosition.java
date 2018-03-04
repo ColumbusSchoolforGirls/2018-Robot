@@ -35,8 +35,16 @@ public class LCenterPosition extends CommandGroup {
     	//addParallel(new ElevatorManual (true, .5));
     	addSequential(new AutoStraightForward(10000));
     	addSequential(new Turn(-90, 1));
+    	addParallel(new ElevatorManual(true, .5), 4);
+    	addSequential(new AutoStraightForward(13000));
+    	addSequential(new ResetGyro());
+    	addSequential(new Turn(90, 1));
+    	addSequential(new AutoStraightForward(12000), 1.5);
     	addSequential(new Grab(true, true));
-//    	addSequential (new Grab(true)); //TODO: Make sure this is the right direction
+    	addSequential(new Wait(1));
+    	addSequential(new Grab(false, true));
+    	addSequential(new AutoStraightForward(-5000));
+    	//TODO: fix me
     	
     }
 }
