@@ -6,9 +6,9 @@ public class Global {
 	public static final int JOYSTICK_DRIVE = 0;
 	public static final int JOYSTICK_AUX = 1;
 	public static final int BUTTON_A = 1;
-	public static final int BUTTON_B =2;
-	public static final int BUTTON_X=3;
-	public static final int BUTTON_Y=4;
+	public static final int BUTTON_B = 2;
+	public static final int BUTTON_X = 3;
+	public static final int BUTTON_Y = 4;
 	public static final int LEFT_BUMPER = 5;
 	public static final int RIGHT_BUMPER = 6;
 	public static final int SELECT = 7;
@@ -24,7 +24,7 @@ public class Global {
 	public static final double DRIVETRAIN_IZONE = 0;
 	public static final double DRIVESTRAIGHT_ANGLE_P = 0.04; // 0.04
 	public static final double DRIVESTRAIGHT_ANGLE_I = 0;
-	public static final double DRIVESTRAIGHT_ANGLE_D= 0;
+	public static final double DRIVESTRAIGHT_ANGLE_D = 0;
 	public static final double TURNANGLE_P = 0.0061;
 	public static final double TURNANGLE_I = 0.001;
 	public static final double TURNANGLE_D = 0;

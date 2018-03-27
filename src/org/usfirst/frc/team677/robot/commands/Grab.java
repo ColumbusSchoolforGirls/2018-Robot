@@ -9,7 +9,6 @@ import org.usfirst.frc.team677.robot.subsystems.Elevator;
  *
  */
 public class Grab extends Command {
-	
 	boolean open;
 	boolean auto;
 
