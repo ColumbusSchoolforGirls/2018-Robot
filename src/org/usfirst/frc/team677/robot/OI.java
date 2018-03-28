@@ -8,6 +8,7 @@
 package org.usfirst.frc.team677.robot;
 
 import org.usfirst.frc.team677.robot.commands.Grab;
+import org.usfirst.frc.team677.robot.commands.Intake;
 import org.usfirst.frc.team677.robot.commands.RampLift;
 import org.usfirst.frc.team677.robot.commands.RampRelease;
 
@@ -46,5 +47,10 @@ public class OI {
 		auxButtonA.whenReleased(new Grab(false, false));
 		buttonA.whenPressed(new RampLift(false));
 		buttonB.whenPressed(new RampRelease(false));
+		//Intake and eject commands. TODO: Tune the speeds and directions
+		auxLeftBumper.whileHeld(new Intake(-.5));
+		auxLeftBumper.whenReleased(new Intake(0));
+		auxRightBumper.whileHeld(new Intake(.5));
+		auxRightBumper.whenReleased(new Intake(0));
 	}
 }

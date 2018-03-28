@@ -7,6 +7,10 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team677.robot.RobotMap;
 import org.usfirst.frc.team677.robot.commands.Grab;
+import org.usfirst.frc.team677.robot.commands.Intake;
+
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 /** 
  *
@@ -14,6 +18,7 @@ import org.usfirst.frc.team677.robot.commands.Grab;
 public class Arm extends Subsystem {
 	public static DoubleSolenoid claw = new DoubleSolenoid(RobotMap.CLAW_SOL_A_PORT, RobotMap.CLAW_SOL_B_PORT);
 	public static Compressor compressor = new Compressor();
+	public static TalonSRX wheels = new TalonSRX(RobotMap.INTAKE_WHEEL_PORT);
 
 	public static void grab(boolean open) {
 		if (open) {
@@ -23,7 +28,11 @@ public class Arm extends Subsystem {
 		}
 	}
 	
+	public static void runIntake(double speed) {
+		wheels.set(ControlMode.PercentOutput, speed);
+	}
+	
 	public void initDefaultCommand() {
-		//setDefaultCommand(new Grab(false, false));
+		setDefaultCommand(new Intake(0));
 	}
 }

@@ -28,6 +28,7 @@ public class RobotMap {
 	public static final int LEFT_DRIVE_PORT_BACK = 4;
 	public static final int RIGHT_DRIVE_PORT_BACK = 1;
 	public static final int ELEVATOR_PORT = 5;
+	public static final int INTAKE_WHEEL_PORT = 6;
 	
 	// DIO Ports
 	public static final int PULLEY_ENCODER_A = 0;

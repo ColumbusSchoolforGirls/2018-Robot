@@ -10,11 +10,11 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class Intake extends Command {
 
-	boolean auto; 
+	double speed;
 	
-    public Intake(boolean auto) {
+    public Intake(double speed) {
     	requires(Robot.arm);
-    	this.auto = auto; 
+    	this.speed = speed;
       }
 
     // Called just before this Command runs the first time
@@ -23,12 +23,12 @@ public class Intake extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	//FIXME: Arm.intake()
+    	Arm.runIntake(speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return auto;
+    	return false;
     }
 
     // Called once after isFinished returns true
