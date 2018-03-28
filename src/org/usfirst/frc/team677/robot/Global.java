@@ -55,6 +55,4 @@ public class Global {
 	public static final int DRIVE_DISTANCE_TOLERANCE = 1000; // Ticks
 	public static final int ELEVATOR_TOLERANCE = 100; // Ticks
 	public static final int DRIVE_ANGLE_TOLERANCE = 12; // Degrees
-	//TODO: FIX ME
-
 }
