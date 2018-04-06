@@ -7,8 +7,9 @@
 
 package org.usfirst.frc.team677.robot;
 
+import org.usfirst.frc.team677.robot.commands.Eject;
 import org.usfirst.frc.team677.robot.commands.Grab;
-import org.usfirst.frc.team677.robot.commands.Intake;
+import org.usfirst.frc.team677.robot.commands.IntakeDrive;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -45,9 +46,8 @@ public class OI {
 		//buttonA.whenPressed(new RampLift(false));
 		//buttonB.whenPressed(new RampRelease(false));
 		//Intake and eject commands. TODO: Tune the speeds and directions
-		auxLeftBumper.whileHeld(new Intake(-.5));
-		auxLeftBumper.whenReleased(new Intake(0));
-		auxRightBumper.whileHeld(new Intake(.5));
-		auxRightBumper.whenReleased(new Intake(0));
+		auxLeftBumper.whileHeld(new IntakeDrive(1));
+		auxRightBumper.whileHeld(new IntakeDrive(-1));
+		auxButtonY.whenPressed(new Eject());
 	}
 }

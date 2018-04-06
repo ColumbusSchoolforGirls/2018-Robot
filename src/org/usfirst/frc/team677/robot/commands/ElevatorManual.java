@@ -35,7 +35,7 @@ public class ElevatorManual extends Command {
 			Elevator.drive(speed);
 		} else {
 			if (OI.auxCont.getRawAxis(1) < -Global.DEAD_ZONE) {
-				Elevator.drive(.7 * OI.auxCont.getRawAxis(1));
+				Elevator.drive(.85 * OI.auxCont.getRawAxis(1));
 
 			} else {
 				Elevator.drive(0);
