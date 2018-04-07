@@ -19,7 +19,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Elevator extends Subsystem {
 	public static TalonSRX pulley = new TalonSRX(RobotMap.ELEVATOR_PORT);
 	public static Encoder pulleyEncoder = new Encoder(RobotMap.PULLEY_ENCODER_A, RobotMap.PULLEY_ENCODER_B);
-//	public static DigitalInput limitSwitch = new DigitalInput(RobotMap.LIMIT_SWITCH);
+	//public static DigitalInput limitSwitch = new DigitalInput(RobotMap.LIMIT_SWITCH);
 	
 	public Elevator() {	
 		pulley.setNeutralMode(NeutralMode.Brake);
@@ -43,9 +43,9 @@ public class Elevator extends Subsystem {
 		return pulleyEncoder.getDistance();
 	}
 	
-//	public static boolean checkSwitch() {
-//		return limitSwitch.get();
-//	}
+	//public static boolean checkSwitch() {
+		//return limitSwitch.get();
+		//}
 	
     public void initDefaultCommand() {
     	setDefaultCommand(new ElevatorManual(false, 0));

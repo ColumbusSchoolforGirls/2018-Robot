@@ -35,13 +35,13 @@ public class ElevatorManual extends Command {
 			Elevator.drive(speed);
 		} else {
 			if (OI.auxCont.getRawAxis(1) < -Global.DEAD_ZONE) {
-				Elevator.drive(.85 * OI.auxCont.getRawAxis(1));
-
+				Elevator.drive(.9 * OI.auxCont.getRawAxis(1)); //goes up
+			} else if (OI.auxCont.getRawAxis(1) > Global.DEAD_ZONE) {
+				Elevator.drive(.4 * OI.auxCont.getRawAxis(1)); //goeSs down
 			} else {
 				Elevator.drive(0);
 			}
 		}
-		
 	}
 
 	protected boolean isFinished() {

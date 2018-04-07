@@ -16,8 +16,11 @@ public class AutoTest extends CommandGroup {
     public AutoTest() {
     	addSequential(new ResetGyro());
     	addSequential(new Grab(false, true));
-    	addSequential(new Wait(.5));
-    	addSequential(new AutoStraightForward(-13000));
-    	addSequential(new IntakeDrive (1));
+    	addSequential(new Wait(1));
+    	addSequential (new ElevatorManual (true, .6),4);
+    	addSequential(new Grab(true,true));
+    	addSequential(new Wait (1));
+    	addSequential (new Grab(false, true));
+    	addSequential (new ElevatorManual (true, -.4),2);
     }
 }
