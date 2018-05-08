@@ -59,6 +59,7 @@ public class AutoStraightForward extends Command {
     }
 
     protected void interrupted() {
+    	Drivetrain.setSpeed(ControlMode.PercentOutput, 0, 0);
     }
    
 }

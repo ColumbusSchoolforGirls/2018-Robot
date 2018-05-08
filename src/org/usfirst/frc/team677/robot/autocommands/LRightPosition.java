@@ -11,18 +11,35 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  */
 public class LRightPosition extends CommandGroup {
-
-    public LRightPosition() {  	
+    public LRightPosition() { 
     	addSequential(new ResetGyro());
     	addSequential(new Grab(false, true));
     	addSequential(new Wait(.5));
 //    	//addParallel(new ElevatorManual (true, .85));
-    	addSequential(new AutoStraightForward(31500));
-//    	addSequential(new Turn(90), 1.5);
-//    	addSequ+
-//    	 ential(new AutoStraightForward(5000));
-//    	addSequential(new Grab(true, true));
-//    	addSequential (new Wait(1.5));
-//    	addSequential(new AutoStraightForward(-5000));    
+//    	//addSequential(new AutoStraightForward(57000));
+    	addSequential (new AutoStraightForward(31500));
+//    	//addSequential(new Turn(90, 1.5));
+//    	//addSequential(new AutoStraightForward(60000));
+////    	addSequential(new AutoStraightForward(5000));
+////    	addSequential(new Grab(true, true));
+////    	addSequential (new Wait(1.5));
+////    	addSequential(new AutoStraightForward(-5000));
+    	
+    	
+    	
+    	
+//    	addSequential(new ResetGyro());
+//    	addSequential(new Grab(false, true));
+//    	addSequential(new Wait(.5));
+////    	//addParallel(new ElevatorManual (true, .85));
+//    	addSequential(new AutoStraightForward(46000),4);
+//    	addSequential(new Turn (-90, 1),1);
+////    	addSequential(new Turn(90), 1.5);
+//    	addSequential(new AutoStraightForward(28000));
+//    	addSequential (new Turn (-90, 1),1);
+////    	addSequential(new Grab(true, true));
+////    	addSequential (new Wait(1.51));
+////    	addSequential(new AutoStraightForward(-5000));    
     	}
+    
 }

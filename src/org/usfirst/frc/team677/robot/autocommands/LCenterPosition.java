@@ -18,17 +18,43 @@ public class LCenterPosition extends CommandGroup {
     	addSequential(new Grab(false, true));
     	addSequential(new Wait (1));
     	addSequential(new AutoStraightForward (10000));
+    	addSequential(new ElevatorManual(true, -.9), 1.25);
+    	addSequential(new ResetGyro());
     	addSequential(new Turn(-90, 1),1);
-    	addParallel(new ElevatorManual(true, .9), 5);
-    	addSequential(new AutoStraightForward (26000));
+    	addSequential(new AutoStraightForward (24000));
     	addSequential(new ResetGyro());
     	addSequential(new Turn(90, 1),1);
-    	addSequential(new AutoStraightForward (12000));
+    	addSequential(new AutoStraightForward (8000), 2);
     	addSequential(new Grab(true,true));
-    	addSequential(new Wait (1));
+    	addSequential(new Wait (.33));
     	addSequential (new Grab(false, true));
-    	addSequential (new AutoStraightForward (-5000));
-    	addSequential (new ElevatorManual(true, -.4),2);
+    	addParallel (new ElevatorManual(true, .4),2);
+    	//The cube is dropped
+    	addSequential (new AutoStraightForward (-13000),1.25);
+    	addSequential(new ResetGyro());
+    	addSequential (new Turn (90,1),1);
+    	//gonna go towards pyramid
+    	addSequential(new AutoStraightForward(12500), 1);
+    	addSequential(new ResetGyro());
+    	addSequential(new Turn(-90, 1), 1);
+    	addSequential(new Grab(true, true), 1);
+    	addParallel(new IntakeDrive(1), 1);
+    	addSequential(new AutoStraightForward(6000), 1);
+    	addSequential(new Grab(false, true), 1);
+    	//this grabs the second cube from the pyramid
+    	addSequential(new Wait(.75));
+    	addSequential(new ElevatorManual(true, -1), 1);
+    	//addSequential(new AutoStraightForward(-5000), 1);
+    	addSequential(new ResetGyro());
+    	addSequential(new Turn(-100, 1), 1);
+    	addSequential(new AutoStraightForward(13000));
+    	addSequential(new ResetGyro());
+    	addSequential(new Turn(95, 1), 1);
+    	addSequential(new AutoStraightForward(10000), .75);
+    	addSequential(new Grab(true, true));
+    	addSequential(new Wait(.75));
+    	addSequential(new AutoStraightForward(-5000), 1);
+    	addSequential(new ElevatorManual(true, .4), 1.25);
     	
     	
     	//addSequential (new ElevatorManual(true, ))

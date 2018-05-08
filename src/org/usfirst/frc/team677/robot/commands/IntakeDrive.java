@@ -35,10 +35,12 @@ public class IntakeDrive extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	Intake.runIntake(0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	Intake.runIntake(0);
     }
 }
