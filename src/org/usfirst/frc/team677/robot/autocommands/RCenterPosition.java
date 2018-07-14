@@ -17,10 +17,10 @@ public class RCenterPosition extends CommandGroup {
     	addSequential(new ResetGyro());
     	addSequential(new Grab(false, true));
     	addSequential(new Wait(.75));
-    	addSequential(new ElevatorManual(true, -1), 1);
+    	addSequential(new ElevatorManual(true, -1), 1.5);
     	addSequential(new AutoStraightForward(22000));
     	addSequential(new Grab(true, true));
-    	addSequential(new Wait(.25));
+    	addSequential(new Wait(.5));
     	addSequential(new Grab(false, true));
     	//this is where is drops the first cube in the switch
     	addParallel(new ElevatorManual(true,.4),1.25);

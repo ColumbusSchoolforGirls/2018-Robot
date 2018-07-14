@@ -18,7 +18,7 @@ public class LCenterPosition extends CommandGroup {
     	addSequential(new Grab(false, true));
     	addSequential(new Wait (1));
     	addSequential(new AutoStraightForward (10000));
-    	addSequential(new ElevatorManual(true, -.9), 1.25);
+    	addSequential(new ElevatorManual(true, -1), 1.25);
     	addSequential(new ResetGyro());
     	addSequential(new Turn(-90, 1),1);
     	addSequential(new AutoStraightForward (24000));
@@ -26,7 +26,7 @@ public class LCenterPosition extends CommandGroup {
     	addSequential(new Turn(90, 1),1);
     	addSequential(new AutoStraightForward (8000), 2);
     	addSequential(new Grab(true,true));
-    	addSequential(new Wait (.33));
+    	addSequential(new Wait (1));
     	addSequential (new Grab(false, true));
     	addParallel (new ElevatorManual(true, .4),2);
     	//The cube is dropped
