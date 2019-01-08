@@ -28,9 +28,9 @@ public class AutoRight extends Command {
 
     protected void end() {
     	if(gameData.charAt(0) == 'L') {
-			new LRightPosition();
+			new LRightPosition().start();
 		} else {
-			new RRightPosition();
+			new RRightPosition().start();
 		}
     }
 

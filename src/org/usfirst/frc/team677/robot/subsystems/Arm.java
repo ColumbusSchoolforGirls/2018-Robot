@@ -7,6 +7,10 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team677.robot.RobotMap;
 import org.usfirst.frc.team677.robot.commands.Grab;
+import org.usfirst.frc.team677.robot.commands.IntakeDrive;
+
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 /** 
  *
@@ -24,6 +28,6 @@ public class Arm extends Subsystem {
 	}
 	
 	public void initDefaultCommand() {
-		setDefaultCommand(new Grab(false, false));
+	
 	}
 }

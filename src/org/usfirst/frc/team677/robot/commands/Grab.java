@@ -9,7 +9,6 @@ import org.usfirst.frc.team677.robot.subsystems.Elevator;
  *
  */
 public class Grab extends Command {
-	
 	boolean open;
 	boolean auto;
 
@@ -19,7 +18,7 @@ public class Grab extends Command {
     	this.auto = auto;
     }
 
-    protected void initialize() {
+	protected void initialize() {
     }
 
     protected void execute() {
